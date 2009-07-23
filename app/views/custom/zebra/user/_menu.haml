@@ -1,0 +1,40 @@
+%ul#user_menu
+  %li
+    %span.group= link_to "Adresar", :controller=>"partner", :action=>:book       
+  %li
+    %span.group= link_to "Izlazni Računi", :controller => 'racun' , :action => 'pregled' 
+    %ul      
+      %li= link_to "Novi", :controller => 'racun' , :action => :new
+      %li= link_to "Novi Gotovinski", :controller => 'racun' , :action => :new_gotovinski  
+      %li= link_to "Neplaćeni", :controller => 'racun' , :action => 'pregled', :placanje => 2 
+      %li= link_to "Dospjeli", :controller => 'racun' , :action => 'pregled', :placanje => 1
+      %li= link_to "Pregled stavki", :controller => 'racun' , :action => 'pregled_stavki' 
+  %li
+    %span.group= link_to "Ulazni Računi", :controller => 'ulazni_racun' , :action => 'pregled' 
+    %ul
+      %li= link_to "Novi", :controller => 'ulazni_racun' , :action => :new       
+      %li= link_to "Neplaćeni", :controller => 'ulazni_racun' , :action => 'pregled', :placanje => 2 
+      %li= link_to "Dospjeli", :controller => 'ulazni_racun' , :action => 'pregled', :placanje => 1     
+      %li= link_to "Pregled stavki", :controller => 'ulazni_racun' , :action => 'pregled_stavki'   
+  %li
+    %span.group= link_to "Uplate i Isplate", :controller => "izvod"        
+  %li
+    %span.group= link_to "Ponude", :controller => 'ponuda' , :action => 'pregled' 
+    %ul
+      %li= link_to "Nova", :controller => 'ponuda' , :action => :new 
+      %li= link_to "Pregled stavki", :controller => 'ponuda' , :action => 'pregled_stavki'   
+  %li
+    %span.group= link_to "Izdaci", :controller => "izdatak", :action => "pregled"  	
+    %ul
+      %li= link_to "Novi", :controller => "izdatak", :action => :edit 
+  %li
+    %span.group= link_to "Primici", :controller => "primitak", :action => "pregled" 
+    %ul
+      %li= link_to "Novi", :controller => "primitak", :action => :edit, :type =>  "Primitak" 
+  %li 
+    %span.group Analize
+    %ul
+      %li= link_to "Najbolji Kupci", :controller=>"analize", :action=>:najbolji_kupci
+      %li= link_to "Najveći Dužnici", :controller=>"analize", :action=>:najveci_duznici       
+      %li= link_to "Stavke Izlaz", :controller=>"analize", :action=>:stavke_izlaz
+      %li= link_to "Stavke Ulaz", :controller=>"analize", :action=>:stavke_ulaz        

@@ -1,0 +1,18 @@
+<%  partner = card_view 
+    id = "partner_#{partner.id}"
+-%>
+<div class="partner_card_view" id="<%=id%>">
+
+	<div class="naziv"><%=h partner.naziv %></div>
+	<div>
+	  <span><%=h partner.mjesto %></span>
+	  <span><%=h partner.adresa %></span>
+	</div>
+	
+	<% if exists?(partner.tel) %><div>tel: <%=h partner.tel %></div><% end %>
+	<% if exists?(partner.fax) %><div>fax: <%=h partner.fax %></div><% end %>
+	<div><%=h partner.kontakt %></div>
+	<div><%=h partner.email %></div>
+	
+</div>
+<script>new InPlaceAjaxEditor('<%=id%>', '/partner/edit/<%=partner.id%>');</script>

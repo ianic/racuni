@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title><%= @title ? @title : "Moji Računi" -%></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <%= stylesheet_link_tag 'application',    :media=>"all" %>
+  <%= stylesheet_link_tag 'partner',        :media=>"all" %>
+  <%= stylesheet_link_tag("racun/default",  :media=>"all")  %>
+  <%= stylesheet_link_tag 'errors' %>
+  <%= stylesheet_link_tag 'autocomplete' %>
+  <%= stylesheet_link_tag 'menu' %>
+  <%= stylesheet_link_tag 'form' %>
+
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'partner' %>
+  <%= javascript_include_tag 'racun_edit' %>
+  <%= javascript_include_tag 'currency' %>
+  <%= javascript_include_tag 'sorttable' %>
+
+  <%= javascript_include_tag 'window' %>
+  <%= stylesheet_link_tag 'themes/default' %>
+  <%= stylesheet_link_tag 'themes/alphacube' %>
+</head>
+<body id="body" class="<%= sidebar_hidden? ? 'hide-sidebar' : '' %>">
+  <div id="logo"></div>
+  <%= render_custom :partial => "layouts/top" %>
+	
+	<% if @user %>
+   <div id="left" >
+    <table cellpadding="0" cellspacing="0" id="left-drawer">
+      <tr>
+        <td class="drawer-content"><div id="menu_content"><%= render_custom :partial => 'user/menu' %></div></td>
+        <td class="drawer-handle" onclick="toggleSidebar(); return false;">
+          <div class="top-corner"></div>
+          <div class="bottom-corner"></div>
+          <div class="corners-wrapper"> </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+	<% end %>
+	
+  <div id="middle">
+    <% if flash[:notice] -%>
+    <div id="notice"><%= flash[:notice] %></div>
+    <% end -%>
+    <%= @content_for_layout %>
+  </div>
+		
+  <div id="footer">
+		<% if @user %>
+      <a href="javascript: { new InPlaceAjaxEditor(null, '/user/edit/').show() }">Postavke</a> |
+		<% end %>
+    <a href="http://trac.igoranic.com/racuni">O aplikaciji</a> |
+    <a href="http://trac.igoranic.com/racuni/wiki/FAQ">FAQ</a> |
+    <a href="mailto:pomoc@igoranic.com?subject=Moji Računi Pomoć"><%= image_tag 'email' %> Pomoć</a>
+  </div>
+	
+</body>
+</html>

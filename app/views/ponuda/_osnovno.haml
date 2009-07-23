@@ -1,0 +1,7 @@
+%h5 osnovno
+.sub_form
+  = row_element "kupac", partner_select('racun', 'partner')
+  .row
+    = element "datum ponude", date_select_hr('racun', 'datum')
+    = element "vrijedi dana", text_field('racun', 'rok_placanja', :class => "ms") 
+  .cleaner

@@ -1,0 +1,86 @@
+= form_start("ukupno")
+  = form_element "osnovica", text_field('racun', 'osnovica', :disabled => true, :class => "mb")  
+  = form_element "popust", text_field('racun', 'popust_postotak', :size => 2, :class => "ms") + "%", false 
+  = form_element "&nbsp;", text_field('racun', 'popust', :class => "m", :disabled => true) 
+  = form_element "pdv", text_field('racun', 'pdv_postotak', :size => 2, :class => "ms") + "%", false  
+  = form_element "&nbsp;", text_field('racun', 'pdv', :class => "m", :disabled => true)  
+  = form_element "iznos", text_field('racun', 'iznos', :disabled => true, :class => "mb")  
+= form_end
+
+
+<h5>ukupno</h5>
+<table class='subForm' cellpadding='0' cellspacing='0'>
+  <tbody>
+    <tr>
+      <td>
+        <div class='formElement'>
+          <h6>osnovica</h6>
+          <input class="mb" disabled="disabled" id="racun_osnovica" name="racun[osnovica]" size="30" type="text" value="617.6100" />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class='formElement'>
+          <h6>popust</h6>
+          <input class="ms" id="racun_popust_postotak" name="racun[popust_postotak]" size="2" type="text" value="11.0000" />%
+        </div>
+        <div class='formElement'>
+          <h6>&nbsp;</h6>
+          <input class="m" disabled="disabled" id="racun_popust" name="racun[popust]" size="30" type="text" value="67.9400" />
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h5>ukupno</h5>
+<div class='subForm'>
+  <div class="formRow">
+    <div class='formElement'>
+      <h6>osnovica</h6>
+      <input class="mb" disabled="disabled" id="Text1" name="racun[osnovica]" size="30" type="text" value="617.6100" />
+    </div>    
+  </div>
+  <div class="formRow">
+    <div class='formElement'>
+      <h6>popust</h6>
+      <input class="ms" id="Text2" name="racun[popust_postotak]" size="2" type="text" value="11.0000" />%
+    </div>
+    <div class='formElement'>
+      <h6>&nbsp;</h6>
+      <input class="m" disabled="disabled" id="Text3" name="racun[popust]" size="30" type="text" value="67.9400" />
+    </div>
+  </div>
+  <div class="formRow">
+    <div class='formElement'>
+      <h6>popust</h6>
+      <input class="ms" id="Text4" name="racun[popust_postotak]" size="2" type="text" value="11.0000" />%
+    </div>
+    <div class='formElement'>
+      <h6>&nbsp;</h6>
+      <input class="m" disabled="disabled" id="Text5" name="racun[popust]" size="30" type="text" value="67.9400" />
+    </div>
+  </div>
+  <div class="cleaner"></div>
+</div>
+
+[
+  ["osnovica", "..."],
+  [["popust", "..."], ["", "..."]]
+]
+
+
+%h5 ukupno
+.sub_form
+  = row_element 'osnovica', text_field('racun', 'osnovica', :disabled => true, :class => "mb")
+  .row
+     = element       'popust',    text_field('racun', 'popust_postotak', :size => 2, :class => "ms") + "%"
+     = element        nil,        text_field('racun', 'popust', :class => "m", :disabled => true)
+  .row
+    = element         'pdv',      text_field('racun', 'pdv_postotak', :size => 2, :class => "ms") + "%"  
+    = element         nil,        text_field('racun', 'pdv', :class => "m", :disabled => true)  
+  = row_element       'iznos',    text_field('racun', 'iznos', :disabled => true, :class => "mb")    
+  <div class='formElement'><h6>osnovica</h6><input class="mb" disabled="disabled" id="Text7" name="racun[osnovica]" size="30" type="text" value="617.6100" /></div>
+  .cleaner

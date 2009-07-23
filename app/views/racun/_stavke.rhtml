@@ -1,0 +1,20 @@
+<h5>stavke</h5>
+<div class="sub_form">
+  <div id="stavke" class="racun_stavke">
+
+    <div class="stavka_jedinica_mjere">j.mj.</div>
+    <div class="stavka_cijena">cijena</div>
+    <div class="stavka_kolicina">količina</div>  	
+    <div class="stavka_iznos">iznos</div>
+    <div class="stavka_del"></div>
+    <div class="cleaner"></div>
+    <%= render :partial => "racun/stavka", :collection => @racun.stavke %>    
+  </div>
+  <div class="racun_stavke">
+    <%= link_to_function image_tag("add.gif"), "racun.novaStavka('#{url_for(:action => 'nova_stavka', :id => @racun.id)}')", :id => "link_nova", :title => "Doadaj Novu Stavku", :class => "img_link" %>
+    <%= indicator('link_nova_indicator')%>
+  </div>
+</div>
+
+
+

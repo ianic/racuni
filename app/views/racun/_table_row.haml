@@ -1,0 +1,16 @@
+%tr.{:id => "pero_#{racun_counter}"}
+  %td.broj{:sorttable_customkey => racun.broj}
+    = racun_broj(racun)
+  %td.partner= render_partner(racun)
+  %td.d{:sorttable_customkey => racun.datum}
+    = d racun.datum
+  %td.d{:sorttable_customkey => racun.dospjece}
+    = d racun.dospjece
+    %span.iznos_dospjelo{ :title => "Kašnjenje plaćanja u danima" }= racun.kasni if racun.kasni?
+  %td.m{:sorttable_customkey => racun.osnovica}
+    = m racun.osnovica
+    .popust{:title=>"Popust #{m racun.popust_postotak}%"}= m racun.popust if racun.popust?
+  %td.m{:sorttable_customkey => racun.pdv}
+    = m racun.pdv
+  %td.iznos{ :id => "racun_iznos_#{racun.id}", :sorttable_customkey => racun.iznos}
+    = render :partial => "racun/table_col_iznos", :locals => {:racun => racun}

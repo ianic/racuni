@@ -1,0 +1,11 @@
+%form    
+  %h5 odabir datuma
+  .sub_form
+    .row
+      = element "interval", select_godina(@godina, false)
+      = element nil, select_mjesec(@mjesec)
+    .cleaner        
+  = submit_to_remote('', 'PRIKAŽI DANE', :url => { :action => 'dani'}, :html => {:class => "button" })
+  = render :partial => "dani"   	
+
+#uplate_isplate

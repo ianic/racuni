@@ -1,0 +1,23 @@
+.inplaceeditor-form{ display:inline; }
+
+div.auto_complete {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #888;
+    margin: 0px;
+    padding: 0px;
+    width: 500px;
+    max-height: 300px;
+    overflow: hidden;    
+    overflow-y: auto;
+}
+
+ul.auto_complete  {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    text-transform: none;
+}
+
+ul.auto_complete li.selected { background-color: #ffb; }
+ul.auto_complete li { border-bottom: 1px dotted #bababa;  padding: 5px; }

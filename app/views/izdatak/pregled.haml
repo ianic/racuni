@@ -1,0 +1,24 @@
+#filter{:style => 'display:none'}
+  %form{:id => 'filter_form'}
+    %h5 filter
+    .sub_form
+      = row_element naziv_partnera(@model_class), render_partner_select(@partner_id)
+      .row
+        = element "godina", select_godina(@godina)
+        = element "mjesec", select_mjesec(@mjesec)
+      = row_element "opis", text_field_tag('opis', @opis, :style => "width:300px;")
+      = row_element "redaka po stranici", select_per_page(@per_page)
+      .cleaner
+    = submit_tag('PRIKAŽI', :class => "button")
+
+= render_paginator(@izdaci_pages, @params, true, false)
+
+%table.fin.sortable
+  %tr
+    %th broj
+    %th datum
+    %th=naziv_partnera(@model_class)
+    %th opis
+    %th način uplate
+    %th iznos
+  = render_collection('izdatak/row_view', @izdaci, 'izdatak')

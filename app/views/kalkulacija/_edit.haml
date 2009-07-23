@@ -1,0 +1,9 @@
+%h5 osnovno
+.sub_form
+  = row_element partner_naziv(@kalkulacija), partner_select('kalkulacija', 'partner')
+  = row_element "datum", date_select_hr('kalkulacija', 'datum')  
+  = row_element "dokument", text_field('kalkulacija', 'dokument')
+  .cleaner
+  
+= render :partial => "stavke"
+

@@ -1,0 +1,14 @@
+<%
+  #locals
+  #filter_link - prikazuje link FILTER
+  #export_link - prikazuje link EXPORT
+  #pages
+  #params
+
+  params = params || Hash.new
+%>
+
+<div class="Paginator" id="paginator"><%= pagination_links(pages, :params => params) if pages -%>
+  <%= link_to_function("FILTER", "Element.toggle('filter'); if (Element.visible('filter')) Form.focusFirstElement('filter_form');") if filter_link -%>
+  <%= link_to("EXPORT", params.merge({"format" => "csv"})) if export_link -%>
+</div>

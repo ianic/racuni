@@ -1,0 +1,32 @@
+= render :partial => 'racun/form_start'
+
+%h5 osnovno
+.sub_form
+  = row_element "dobavljač", partner_select('racun', 'partner')
+  .row
+    = element "datum računa", date_select_hr('racun', 'datum')
+    = element "rok plaćanja", text_field('racun', 'rok_placanja', :class => "ms")
+  = row_element "broj računa", text_field('racun', 'partner_broj')
+  = row_element "način plaćanja", select('racun', 'tip_placanja', Racun::TIP_PLACANJA)
+  .cleaner
+
+= render :partial => 'racun/stavke'
+
+%h5 ukupno
+.sub_form
+  = row_element "osnovica", text_field('racun', 'osnovica', :class => "mb", :currency => "true")  
+  .row
+    = element "popust", text_field('racun', 'popust_postotak', :size => 2, :class => "ms", :currency => "true") + "%"
+    = element nil, text_field('racun', 'popust', :class => "m", :currency => "true")
+  .row
+    = element "pdv", text_field('racun', 'pdv_postotak', :size => 2, :class => "ms", :currency => "true") + "%"
+    = element nil, text_field('racun', 'pdv', :class => "m", :currency => "true")
+  = row_element "ostali troškovi", text_field('racun', 'ostali_troskovi', :class => "m", :currency => "true")
+  .row
+    = element "iznos", text_field('racun', 'iznos', :disabled => true, :class => "mb", :currency => "true")    
+  .cleaner
+
+= render_custom :partial => 'edit_ostalo'
+
+= render :partial => 'racun/form_end'
+= render :partial => 'racun/js'

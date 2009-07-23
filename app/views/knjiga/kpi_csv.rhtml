@@ -1,0 +1,44 @@
+<%= render_csv do |csv|
+      csv << [
+        "R.BR.", 
+  	    "NADNEVAK", 
+  	    "BROJ TEMELJNICE",  
+  	    "OPIS ISPRAVA",  
+      	
+  	    "PRIMICI U GOTOVINI",
+  	    "PRIMICI NA �IRO",
+  	    "PRIMICI U NARAVI",
+  	    "PRIMICI POREZ",	
+  	    "PRIMICI UKUPNO",
+      	
+  	    "IZDACI U GOTOVINI",
+  	    "IZDACI NA �IRO",
+  	    "IZDACI U NARAVI",
+  	    "IZDACI POREZ",	
+  	    "IZDACI UKUPNO"
+      ]
+	   
+	    @rb = 1
+	    for pi in @kpi    
+        csv << [@rb, 
+          d(pi.datum),
+          pi.broj_temeljnice,
+          pi.opis,
+          
+          (m(pi.u_gotovini) if pi.primitak?) ,
+	        (m(pi.na_ziro) if pi.primitak?),
+	        (m(pi.u_naravi) if pi.primitak?),
+	        (m(pi.pdv) if pi.primitak?),
+	        (m(pi.ukupno) if pi.primitak?),
+          
+          (m(pi.u_gotovini) if !pi.primitak?) ,
+	        (m(pi.na_ziro) if !pi.primitak?) ,
+	        (m(pi.u_naravi) if !pi.primitak?),
+	        (m(pi.pdv) if !pi.primitak?) ,
+	        (m(pi.ukupno) if !pi.primitak?)
+        ]
+	      @rb += 1
+	    end 
+    end
+-%>
+

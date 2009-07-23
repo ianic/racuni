@@ -1,0 +1,61 @@
+%table.fin.sortable{:style=>"table-layout:fixed"}
+  %tr
+    %th{:style=>"width:50px"} broj dok.
+    %th{:style=>"width:200px"} naziv
+    %th{:style=>"width:100px"} adresa
+    %th{:style=>"width:100px"} mjesto
+    %th{:style=>"width:100px"} telfon
+    %th{:style=>"width:100px"} fax
+    %th{:style=>"width:100px"} porezni broj
+    %th{:style=>"width:100px"} ziro račun
+    %th{:style=>"width:100px"} kontakt  
+  - @partneri.each do |partner|
+    %tr{:onclick=>"oznaci('#{partner.id}')", :id=>"#{partner.id}"}
+      %td=partner.broj_dokumenata
+      %td=partner.naziv
+      %td=partner.adresa
+      %td=partner.mjesto
+      %td=partner.tel
+      %td=partner.fax
+      %td=partner.porezni_broj
+      %td=partner.ziro_racun
+      %td=partner.kontakt
+%script
+  var stari, novi;
+  
+  function oznaci(partner_id){
+    if (stari && stari == partner_id){
+      brisi();
+      return;
+    }
+  
+    if (!stari)
+      stari = partner_id;
+    else
+      novi = partner_id
+          
+    $(stari).style.backgroundColor = "#FFFF66";
+    if (novi)
+      $(novi).style.backgroundColor = "#66FF66";
+    
+    if (stari && novi)
+    {
+      if (confirm('Zamjena ŽUTO označenog partnera ZELENIM na svim dokumentima i brisanje ŽUTOG partnera?'))
+        zamjeni();          
+      brisi();
+    }
+  }  
+  
+  function brisi(){
+    if (stari && $(stari))
+      $(stari).style.backgroundColor = "#FFFFFF";
+    if (novi && $(novi))
+      $(novi).style.backgroundColor = "#FFFFFF";    
+    stari = null;
+    novi = null;
+  }  
+  
+  function zamjeni(){
+    Element.remove(stari);
+    new Ajax.Request('/partner/zamjena',{ parameters: "stari=" + stari + "&novi=" + novi} );
+  }

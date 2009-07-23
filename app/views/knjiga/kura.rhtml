@@ -1,0 +1,72 @@
+﻿<%= render :partial => "filter" %>
+
+<% if @placanja.size > 0  %>
+<table class="fin">
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+      <th colspan="2">dobavljač</th>
+      <th colspan="3">iznos računa</th>
+      <th colspan="3">predporez</th>
+    </tr>
+    <tr>
+  	  <th>r.br.</th>  
+  	  <th>broj</th>  
+  	  <th>nadnevak</th>  
+  	  
+  	  <th>naziv</th>
+  	  <th>mb/jmbg</th> 
+    	 	  
+  	  <th>bez poreza</th>
+  	  <th>ukupno</th>  	
+  	  <th>oporezivi dio</th> 
+    	
+  	  <th>ukupno</th>  	
+  	  <th>može se odbiti</th>
+  	  <th>ne može se odbiti</th>
+    	
+  	  <th>datum<br />plaćanja</th>
+    </tr>
+  </thead>
+  <tbody>
+<%
+	@rb = 1
+	for placanje in @placanja %>
+	<tr class="<%= even_odd(@rb) %>">
+		<td><%= @rb %></td>
+		<td><%= placanje.racun.partner_broj %></td>
+		<td align="center"><%= d placanje.racun.datum %></td>
+		<td><%= render_partner(placanje.racun)  %></td>	
+		<td><%= placanje.racun.partner.porezni_broj %></td>	
+		
+		<td align="right"><%= m(placanje.bez_poreza) %></td>
+		<td align="right"><%= m(placanje.iznos) %></td>	
+		<td align="right"><%= m(placanje.porezna_osnovica) %></td>	
+		
+		<td align="right"><%= m(placanje.pdv) %></td>	
+		<td align="right"><%= m(placanje.pdv_moze_se_odbiti) %></td>	
+		<td align="right"><%= m(placanje.pdv_nemoze_se_odbiti) %></td>
+		
+		<td align="center"><%= d placanje.datum %></td>
+	</tr>
+<%
+	  @rb += 1 
+	end
+%>
+  </tbody>
+  <tfoot>
+	  <tr>
+		  <th colspan="5"></th>	
+		  <td align="right"><%= m(@sume['bez_poreza'])%></td>
+		  <td align="right"><%= m(@sume['iznos'])%></td>
+		  <td align="right"><%= m(@sume['porezna_osnovica'])%></td>		
+		  <td align="right"><%= m(@sume['pdv'])%></td>
+		  <td align="right"><%= m(@sume['pdv_moze_se_odbiti'])%></td>
+		  <td align="right"><%= m(@sume['pdv_nemoze_se_odbiti'])%></td>		
+		  <th></th>	
+	  </tr>
+	</tfoot>
+</table>
+
+<%end %>
+

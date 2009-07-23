@@ -1,0 +1,8 @@
+%tr.{:class => "#{even_odd(stavka_counter)}"}
+  %td.broj= stavka.racun.broj
+  %td.d= d stavka.racun.datum
+  %td.partner= render_partner(stavka.racun)
+  %td= stavka.opis 
+  %td.m{:sorttable_customkey => stavka.kolicina}= k stavka.kolicina
+  %td.m{:sorttable_customkey => stavka.cijena}= m stavka.cijena
+  %td.m{:sorttable_customkey => stavka.iznos}= m stavka.iznos

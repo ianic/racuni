@@ -1,0 +1,9 @@
+%tr{ :class => "#{even_odd(partner_counter)}" }
+  %td.partner= render_partner(partner)
+  %td.iznos{:sorttable_customkey => partner.iznos}= m partner.iznos
+  %td.iznos{:sorttable_customkey => partner.placeno}= m partner.placeno
+  %td.iznos{:sorttable_customkey => partner.dug}= m partner.dug
+  %td.m 
+    = link_to partner.broj_racuna, :controller => "racun", :action=>"pregled", :partner_id => partner.id, :godina => @godina, :mjesec => @mjesec
+  %td.m 
+    = (partner.broj_neplacenih_racuna.to_i == 0) ? "0" : link_to(partner.broj_neplacenih_racuna, :controller => "racun", :action=>"pregled", :type=>"Racun", :partner_id => partner.id, :godina => @godina, :mjesec => @mjesec, :placanje=>2)

@@ -1,0 +1,10 @@
+page.replace 'placanje', :partial => 'racun_placanje/placanja'
+if update_racun_row
+  page << "if ($('racun_iznos_#{@racun.id}') != null) {"
+    page.replace_html "racun_iznos_#{@racun.id}", render(:partial => "racun/table_col_iznos", :locals => {:racun => @racun})
+    page.visual_effect :highlight, "racun_iznos_#{@racun.id}"
+  page << " }"
+end
+if close_editor
+	page << "try { editor_window.destroy(); } catch(e){};"
+end

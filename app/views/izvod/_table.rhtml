@@ -1,0 +1,33 @@
+<% if collection.size > 0 %>
+
+<h3><%= title %></h3>
+<table class="fin" width="600px">
+  <thead>
+    <tr>
+      <th>dokument</th>
+      <th><% partner_naziv %></th>
+      <th>opis</th>
+      <th>iznos</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%
+    ukupno = 0
+    collection.each do |u| %>
+    <tr>
+      <td><%= naziv_dokumenta(u.izvod_dokument) %></td>
+      <td class="partner"><%= render :partial => 'partner/partner', :object => u.partner %></td>
+      <td><%= u.izvod_opis %></td>
+      <td class="m"><%= m u.iznos %></td>
+    </tr>
+  <%
+    ukupno += u.iznos
+    end %>
+  </tbody>
+  <tfoot>
+    <th colspan="3"></th>
+    <td class="m"><%= m ukupno %></td>
+  </tfoot>
+</table>
+ 
+<%end %>

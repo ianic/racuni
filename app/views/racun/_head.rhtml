@@ -1,0 +1,22 @@
+<div class="dokument_head" id="head">
+  <div class="dokument_head_left">Datum</div>
+  <div class="dokument_head_middle">Rok Plaćanja</div>
+  <div class="dokument_head_right">Dospjeće</div>
+  
+  <div class="dokument_head_value" id="datum"><%= date_in_place_editor 'racun', 'datum' %></div>
+  <div class="dokument_head_value" id="rok_placanja"><%= in_place_editor_field('racun', 'rok_placanja', {:tag=>"div"}, {:size=>3}) %></div>
+  <div class="dokument_head_value" id="dospjece"><%= date_in_place_editor 'racun', 'dospjece' %></div>    
+  <div class="clear"></div>
+  
+  <% if @racun.ulazni? %>
+  <div class="dokument_head_left">Broj Računa</div>
+  <div class="dokument_head_middle">Način Plaćanja</div>
+  <div class="dokument_head_right">&nbsp;</div>
+  <div class="clear"></div>
+  
+  <div class="dokument_head_value" id="partner_broj"><%= in_place_editor_field('racun', 'partner_broj', :tag=>"div") %></div>
+  <div class="dokument_head_value" id="tip_placanja"><%= in_place_select 'racun', 'tip_placanja', Racun::TIP_PLACANJA %></div>
+  <div class="dokument_head_value">&nbsp;</div>    
+  <div class="clear"></div>
+  <% end %>  
+</div>

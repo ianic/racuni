@@ -1,0 +1,8 @@
+%h5 ostalo
+.sub_form  
+  = row_element "tip predporeza", select('racun', 'tip_predporeza', Racun::TIP_PREDPOREZA)
+  = row_element "način knjiženja u KPI", select('racun', 'tip_knjizenja', Racun::TIP_KNJIZENJA)
+  .row
+    = element "kategorija predporeza", select('racun', 'pdv_kategorija', Racun::KATEGORIJA_PREDPOREZA)
+    %a{:href => "/docs/PDV.pdf"} ?
+  .cleaner

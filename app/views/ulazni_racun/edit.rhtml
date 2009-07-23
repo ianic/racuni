@@ -1,0 +1,11 @@
+<div id="tab_control">
+  <ul class="tabs">
+    <li><a href="#page_1">Izmjene</a></li>
+    <li><a href="#page_2">Plaćanje</a></li>
+  </ul>
+  <div id="page_1" class="tab_page"><%= render :partial => "edit" %></div>
+  <div id="page_2" class="tab_page"><%= render :partial => "racun/placanje" %></div>
+</div>
+<script>
+  TabControl('tab_control', { current: 'page_1' });
+</script>

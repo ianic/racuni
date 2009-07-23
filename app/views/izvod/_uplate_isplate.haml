@@ -1,0 +1,3 @@
+%h2=@datum.to_s(:hr)
+= render :partial => "table", :locals => {:title => "Uplate", :partner_naziv => "uplatitelj", :collection => @uplate}
+= render :partial => "table", :locals => {:title => "Isplate", :partner_naziv => "primatelj", :collection => @isplate}

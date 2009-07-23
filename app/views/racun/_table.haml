@@ -1,0 +1,23 @@
+%table.fin.sortable#racuni
+  %thead
+    %tr
+      %th broj
+      %th= partner_naziv(@racuni[0])
+      %th datum
+      %th dospjeće
+      %th osnovica
+      %th pdv
+      %th iznos
+  %tbody
+    = render_collection 'racun/table_row', @racuni, 'racun'
+  %tfoot
+    %tr
+      %td= @sume["broj"]
+      %th/
+      %th/
+      %th/
+      %td.m
+        = m @sume["osnovica"]
+        .popust{:title=>"Popust"}= m @sume["popust"] if @sume["popust"].to_f > 0
+      %td.m= m @sume["pdv"]
+      %td.m= div_iznos(@sume["iznos"]) + div_neplaceni_iznos2(@sume["neplaceno"])

@@ -1,0 +1,221 @@
+#login
+{
+  position:absolute;
+  left: 40%;
+  top: 30%;
+}
+
+/* Main Layout
+   =========================== */
+#top {
+  border-bottom: solid 6px #4c4c4c;
+  background: #B5CBE7;
+  margin: 0;
+  padding-right: 25px;
+  height: 29px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+#top_title
+{
+  float: left;
+  margin-left: 250px;
+  margin-top: 10px;
+}
+
+#logo
+{
+  position: absolute;
+  height: 68px;
+  width: 241px;
+  background: transparent url(/images/logo.gif) top left no-repeat;
+}
+
+#left {
+  position: absolute;
+  top: 80px;
+  background: transparent;
+  left: 0;
+  margin: 0;
+}
+
+#middle {
+  position: relative;
+  top: 0px;
+  min-width: 400px;
+  min-height: 610px;
+  background-color: transparent;
+  margin: 0 5px 10px 230px;
+  padding: 5px 0 5px 0;
+}
+
+#footer
+{
+  border-top: dotted 1px #4c4c4c;
+  margin: 40px 5px 10px 230px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Main Left Menu
+   =========================== */
+
+#left-drawer { margin-top: 1px; border-collapse: separate; }
+
+#left-drawer td.drawer-content {
+  width: 170px;
+  padding: 0px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  border-top: solid 6px #4c4c4c;
+  border-bottom: solid 7px #4c4c4c;
+  background: #B5CBE7;
+  margin: 0px;
+}
+
+#left-drawer td.drawer-handle {
+  width: 42px;
+  background: transparent url(/images/tab3.gif) no-repeat;
+  cursor: pointer;
+  vertical-align: top;
+  padding: 0px;
+  margin: 0px;
+  }
+
+#left-drawer td.drawer-handle .corners-wrapper {
+  position: relative;
+}
+
+#left-drawer td.drawer-handle .top-corner {
+  height: 42px;
+  width: 42px;
+  position: absolute;
+  background: white url(/images/tab_top.gif) top right no-repeat;
+  top: 1px;
+  right: 0;
+  padding: 0px;
+  margin: 0px;
+}
+
+#left-drawer td.drawer-handle .bottom-corner {
+  height: 42px;
+  width: 42px;
+  position: absolute;
+  background: white url(/images/tab_bottom.gif) bottom right no-repeat;
+  bottom: 0px;
+  right: 0;
+}
+
+#left-drawer td.drawer-handle .corners-wrapper { display: none; }
+
+#top_right_logo { display: none; margin-left: 20px; }
+
+.hide-sidebar #logo            { visibility: hidden; }
+.hide-sidebar #left            { left: -196px; }
+.hide-sidebar #top_title       { margin-left: 10px;}
+.hide-sidebar #top_right_logo  { display: inline;}
+.hide-sidebar #middle          { margin-left: 30px; }
+.hide-sidebar #footer          { margin-left: 30px; }
+.hide-sidebar #left-drawer td.drawer-handle { background: transparent url(/images/tab_over.gif) no-repeat; }
+
+/* User menu
+  =========================== */
+#user_menu .group
+{
+  font-family: "Trebuchet MS";
+  font-style: italic;
+  font-weight: bold;
+  font-size: 16px;
+  color:#4c4c4c;
+  margin:0pt 0pt 7px;
+}
+
+#user_menu li
+{
+  font-family: "Trebuchet MS";
+  font-size: 13px;
+  color:#4c4c4c;
+}
+
+
+#user_menu a:link    , #footer a:link   { color: #4c4c4c; text-decoration: none; }
+#user_menu a:visited , #footer a:visited{ color: #4c4c4c; text-decoration: none; }
+#user_menu a:hover   , #footer a:hover  { color: #4c4c4c; text-decoration: underline; background: #b5cbe7; }
+#user_menu a:active  , #footer a:active { color: #4c4c4c; text-decoration: underline; background: #b5cbe7; }
+
+/* Popup Menu
+  =========================== */
+.popup_div
+{
+  position: absolute;
+  z-index: 100;
+  padding: 6px;
+  width: 150;
+  height: 140;
+  background: white;
+  border: 2px solid #999;
+  top: 12px;
+  left: 13px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+.popup_div .menu_separator {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid grey;
+}
+
+
+/* Tabs =========================== */
+.tabs {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 1px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.tabs:after { /* clearing without presentational markup, IE gets extra treatment */
+    display: block;
+    clear: both;
+    content: " ";
+}
+.tabs li {
+    float: left;
+    margin: 2px;
+}
+.tabs a {
+  border:1px solid #DDDDDD;
+  font-weight:normal;
+  padding:4px 6px;
+  text-decoration: none;
+  color:#4c4c4c;
+  line-height:28px;
+  text-transform: uppercase;
+}
+.tabs .active a {
+
+}
+.tabs a:focus, .tabs a:active {
+    outline: none; /* @ Firefox 1.5, remove ugly dotted border */
+}
+.tabs a:hover, .tabs a:focus{
+  background:#b5cbe7 none repeat scroll 0%;
+  border-color:#DDDDDD;
+  color:#FFFFFF;
+  text-decoration:none;
+  color:#4c4c4c;
+}
+.tabs .active a, .tabs a:active
+{
+  font-weight:bold;
+  border: 0px;
+  background: #FFFFFF none repeat scroll 0%;
+  line-height:28px;
+}
+.tabs .active a:link, .tabs .active a:visited { /* @ Opera, use pseudo classes otherwise it confuses cursor... */
+    cursor: text;
+}
+.tabs a:hover, .tabs a:focus, .tabs a:active {
+  cursor: pointer;
+}

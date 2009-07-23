@@ -1,0 +1,73 @@
+<div class="document" style="width: 600px; font-family: Verdana; font-size: 11pt;color:black;">
+  <div>
+    <div style="text-align: right; font-size: 10pt; float: right;">
+      <img src="/images/42logo.gif" />
+      <div style="font-weight: bold;">MB: <%= @user.porezni_broj %></div>
+      <div style="font-weight: bold;">Rn: <%= @user.ziro_racun %></div>
+      <div><%= @user.adresa %></div>
+      <div><%= @user.mjesto %></div>
+      <div style="font-size: 11pt; font-weight: bold;">R-2</div>
+    </div>
+
+    <div style="font-size: 11pt; padding-top: 100px; padding-left: 20px">
+      <div style="font-size: 14pt;"><%= @racun.partner.naziv %></div>
+      <div style="font-weight: bold;">MB: <%= @racun.partner.porezni_broj %></div>
+      <div><%= @racun.partner.adresa %></div>
+      <div><%= @racun.partner.mjesto %></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <div style="font-size: 14pt; background-color: #C6C3C6; text-align: center; padding: 5px; border: solid 1px; margin-top: 60px; margin-bottom: 40px;">
+    <%= "RAČUN BROJ : #{@racun.broj_dokumenta}" if @racun.racun? %>
+    <%= "PONUDA BROJ : #{@racun.broj_dokumenta}" if @racun.ponuda? %>
+    <%= "GOTOVINSKI RAČUN BROJ : #{@racun.broj_dokumenta}" if @racun.gotovinski? %>
+  </div>
+  <div>U Zagrebu, <%=d @racun.datum %></div>
+
+  <div style="margin-top: 40px; margin-bottom: 15px; font-weight: bold; border-top:solid 1px; border-bottom:solid 1px; text-align:right;">
+    <div style="float: left; width: 260px; text-align: left;">Naziv</div>
+    <div style="float: left; width: 100px;">Količina</div>
+    <div style="float: left; width: 100px;">Cijena</div>
+    <div style="float: left; width: 140px;">Ukupno</div>
+    <div class="clear"></div>
+  </div>
+  <% @racun.stavke.each do |stavka| %>
+  <div style="vertical-align: baseline; line-height: 20px; margin-bottom: 10px; text-align:right;">
+    <div style="float: left; width: 260px; text-align: left;"><%= stavka.opis %></div>
+    <div style="float: left; width: 100px;"><%=k  stavka.kolicina %> <%= stavka.jedinica_mjere %></div>
+    <div style="float: left; width: 100px;"><%=m stavka.cijena %> kn</div>
+    <div style="float: left; width: 140px;"><%=m stavka.iznos %> kn</div>
+    <div class="clear"></div>
+  </div>
+  <% end %>
+  <div style="border-top:solid 1px;"></div>
+
+  <div style="margin-top: 40px; text-align: right; line-height: 22px">
+    <div style="float: right; width: 150px;">
+      <div><%= m @racun.osnovica %> kn</div>
+      <% if @racun.popust? %>
+      <div><%= m @racun.popust %> kn</div>
+      <% end %>
+      <div><%= m @racun.pdv %> kn</div>
+      <div style="font-weight: bold;"><%= m @racun.iznos %> kn</div>
+    </div>
+
+    <div style="float: right; width: 150px; text-align: left; ">
+      <div>Iznos bez PDV-a:</div>
+      <% if @racun.popust? %>
+      <div>Popust:</div>
+      <% end %>
+      <div>PDV:</div>
+      <div style="font-weight: bold;">Ukupno za platiti:</div>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <div style="margin-top: 60px; padding-left: 20px;">Plaćanje virmanom na žiro račun <%= @user.ziro_racun %> do <%= d @racun.dospjece %></div>
+
+  <div style="padding-left: 450px; margin-top: 40px;">
+    <div>Direktor:</div>
+    <div style="margin-top: 20px;">Dragutin Vdović</div>
+  </div>
+</div>

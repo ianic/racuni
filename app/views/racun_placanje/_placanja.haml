@@ -1,0 +1,14 @@
+#placanje
+  %h5
+  .sub_form
+    .iznos_title iznos računa
+    .racun_iznos= m @racun.iznos
+    .cleaner
+    .iznos_title plaćeno
+    .racun_iznos= m @racun.placeno
+    .cleaner
+    .iznos_title za naplatu
+    .racun_iznos= m @racun.za_naplatu
+    .cleaner
+  = render(:partial => "racun_placanje/uplate") if !@racun.placanja.empty?
+  = render(:partial => "racun_placanje/nova_uplata") if !@racun.placen

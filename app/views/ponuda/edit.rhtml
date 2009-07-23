@@ -1,0 +1,14 @@
+<div id="tab_control">
+  <ul class="tabs">
+    <li><a href="#page_1">Izmjene</a></li>
+    <li><a href="#page_3">Ispis</a></li>
+  </ul>
+  <div id="page_1" class="tab_page"><%= render :partial => "edit" %></div>
+  <div id="page_3" class="tab_page"><%= render :partial => "racun_ispis/#{@user.racun_template}", :layout => "racun_ispis"   %></div>
+</div>
+<script>
+  TabControl('tab_control', { current: 'page_1' });
+  <% if @racun.stavke.empty? %>
+    racun.novaStavka('<%= url_for(:action => 'nova_stavka', :id => @racun.id) %>')
+  <% end %>
+</script>

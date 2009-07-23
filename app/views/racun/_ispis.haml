@@ -1,0 +1,86 @@
+#racun_ispis.document
+
+  .dokument_partner
+    .right
+      = render_partner_view(@racun)
+    .partner_view
+      .naziv= @user.naziv
+      %div= @user.mjesto
+      %div= 'ured: ' + @user.adresa
+      %div
+        %span.note porezni broj, JMBG:
+        = @user.porezni_broj
+      %div
+        %span.note matični broj obrta:
+        = @user.mbo
+      %div
+        %span.note žiro račun:
+        = @user.ziro_racun
+
+  .dokument_naziv
+    = "RAČUN - OTPREMNICA R-2 br. #{@racun.broj_dokumenta}" if @racun.racun?
+    = "GOTOVINSKI RAČUN - OTPREMNICA R-2 br. #{@racun.broj_dokumenta}" if @racun.gotovinski?
+    = "PONUDA br. #{@racun.broj_dokumenta}" if @racun.ponuda?
+
+  .datum_head.left Datum
+  .datum_head
+    = "Rok Plaćanja" if @racun.racun?
+    = "&nbsp;" if @racun.gotovinski?
+    = "Vrijedi Dana" if @racun.ponuda?
+  .datum_head.right
+    = "Dospjeće" if @racun.racun?
+    = "&nbsp;" if @racun.gotovinski?
+    = "Vrijedi Do" if @racun.ponuda?
+  .datum.left= d @racun.datum
+  .datum
+    = "&nbsp" if @racun.gotovinski?
+    = @racun.rok_placanja if !@racun.gotovinski?
+  .datum.right
+    = "&nbsp" if @racun.gotovinski?
+    = d @racun.dospjece if !@racun.gotovinski?
+  .clear
+
+  .head_stavka
+    .head_stavka_opis Naziv
+    .head_stavka_jedinica_mjere Jedinica Mjere
+    .head_stavka_kolicina Količina
+    .head_stavka_cijena Cijena
+    .head_stavka_iznos Iznos
+    .clear
+    - @racun.stavke.each do |stavka|
+      .opis= h stavka.opis
+      .jedinica_mjere= h stavka.jedinica_mjere
+      .kolicina= k stavka.kolicina
+      .cijena= m stavka.cijena
+      .iznos= m stavka.iznos
+      .clear
+
+  .ukupno
+    .naslov UKUPNO
+    .cola OSNOVICA
+    .colbc= m @racun.osnovica
+    .clear
+    - if @racun.popust?
+      .cola POPUST
+      .colbc= m @racun.popust
+      .clear
+    .cola  PDV
+    .colb= m @racun.pdv_postotak
+    .colc= m @racun.pdv
+    .clear
+    .cola.colbold  IZNOS
+    .colbc.colbold= m @racun.iznos
+    .clear
+  .potpis
+  .footer
+    = "tel: #{@user.tel}," if @user.tel
+    = "fax: #{@user.fax}," if @user.fax
+    = "gsm: #{@user.gsm}," if @user.gsm
+    = "e-mail:#{@user.email}" if @user.email
+    = "web:#{@user.www}" if @user.www
+
+
+
+
+
+

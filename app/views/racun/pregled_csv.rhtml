@@ -1,0 +1,14 @@
+<%= render_csv do |csv|
+  csv << %w(BROJ KUPAC DATUM DOSPJEÆE OSNOVICA POPUST PDV IZNOS)
+  @racuni.each do |racun|
+	csv << [racun.broj, 
+	  racun.partner.naziv, 
+	  d(racun.datum), 
+	  d(racun.dospjece), 
+	  m(racun.osnovica), 
+	  m(racun.popust) ,
+	  m(racun.pdv), 
+	  m(racun.iznos)]
+  end 
+end
+-%>

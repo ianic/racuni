@@ -1,0 +1,6 @@
+%tr{ :id => placanje.id }
+  %td=d placanje.datum
+  %td= placanje.dokument
+  %td= m placanje.iznos
+  %td= tip_uplate_to_s(placanje.tip_uplate)
+  %td= link_to_delete_placajne(placanje.id, @racun.id)

@@ -1,0 +1,107 @@
+/*adresar--------------------------------------*/
+#adresar_content {
+clear:both;
+min-width:700px;
+padding-top:4px;
+}
+#adresar_tabs {
+min-width:700px;
+}
+#adresar_tabs ul {
+padding:0pt;
+}
+#adresar_tabs ul li {
+display:inline;
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+}
+#adresar_tabs ul a, #adresar_tabs ul a.current_tab {
+color:#4C4C4C;
+display:block;
+float:left;
+margin:2px;
+text-align:center;
+text-decoration:none;
+/*width:1.5em;*/
+padding: 2px 6px;
+}
+#adresar_tabs ul span, #adresar_tabs ul a.current_tab, #adresar_tabs ul a.current_tab:hover {
+background:white none repeat scroll 0% 50%;
+border-color:white;
+font-weight:bold;
+}
+#adresar_tabs ul a {
+background:#FFFFFF none repeat scroll 0% 50%;
+border:1px solid #DDDDDD;
+}
+#adresar_tabs ul a:hover {
+background:#B5CBE7 none repeat scroll 0% 50%;
+border-color:#DDDDDD;
+}
+
+ a:focus,  a:active {
+    outline: none; /* @ Firefox 1.5, remove ugly dotted border */
+}
+
+/*card_view--------------------------------------*/
+
+.partner_card_view
+{
+	border: 1px dotted #bababa; 
+	width: 230px; 	
+	height: 5.5em;
+	padding: 5px;
+	margin: 2px;
+	float: left;
+	overflow: hidden;
+	font-size:11px;
+	color:#666;	
+}
+.partner_card_view .naziv {	
+	font-weight:bold;
+	font-size:12px;
+	line-height:1.2em;	
+}
+
+.partner_view_edit{	
+	width: 322px;	
+}
+.partner_edit{
+	background-color: #f6f6f6;
+	padding: 4px;
+}
+.partner_edit input { width: 280px;}
+.partner_view
+{
+	border: 1px dotted #bababa;
+	height: 7em;
+	padding: 10px;
+	font: 9pt/11pt Arial;
+	width: 300px;
+}
+.partner_view .naziv {
+	color: #000;
+	font: bold 10pt/11pt Arial;
+}
+.partner_view .note{
+	font: bold 7pt Arial;
+}
+
+
+/*td.partner-------------------------------------*/
+td.partner {
+    font-size: 9px;
+    color:#888;
+}
+td.partner .naziv 
+{
+    font-size:11px;  
+}
+@media screen
+{
+	td.partner .naziv {color: #666; font-weight:bold;}
+}
+
+
+.partner_naziv { width:400; height:50; }

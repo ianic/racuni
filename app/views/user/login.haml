@@ -1,0 +1,8 @@
+= form_remote_tag :url => {:action => 'login'}
+%h5
+.sub_form
+  = row_element "korisničko ime", text_field_tag('username', @username)
+  = row_element "zaporka", password_field_tag('password')
+  .cleaner
+= submit_tag 'PRIJAVA'
+= end_form_tag

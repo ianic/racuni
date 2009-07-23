@@ -1,0 +1,8 @@
+<% if request.xhr? %>
+<h3><%= @title %></h3>
+<% end%>
+<% if ima_placanja?(@racun) %>
+  <%= render(:partial => 'racun_placanje/placanja')  %>
+<% else %> 
+  <h5>Račun je plaćen gotovinski.</h5>
+<% end %>

@@ -1,0 +1,44 @@
+<%
+    #expected locals: partner, url      
+    input_field_id = input_field_id || "partner_id"
+%>
+<div class="partner_view_edit">
+  <div id="partner_edit" class="partner_edit">
+    <%= text_field_tag 'partner_search', '', 'autocomplete' => "off"  %>		
+    <%= image_link('delete.png', 'ClearPartner()', 'Briši') if clear_button %>
+    <%= indicator('partner_auto_complete_indicator') %>
+    <div class="auto_complete" id="partner_auto_complete"></div>
+  </div>
+  <div id="partner_view"><%= render_partner_view(partner) %></div>
+</div>
+
+<script type="text/javascript">
+
+  new Ajax.Autocompleter('partner_search', 'partner_auto_complete', '/partner/auto_complete',
+      {
+       afterUpdateElement: function(element, selectedElement) 
+       { 
+         partner_id = selectedElement.id.split('_')[1];   
+         OnPartnerChanged(partner_id); 
+       },
+       indicator: 'partner_auto_complete_indicator',
+       minChars: 1
+      }
+  );
+    
+  function OnPartnerChanged(partner_id)
+  {
+      new Ajax.Updater("partner_view", "/partner/view/" + partner_id, {asynchronous:true, evalScripts:true}); 
+      $('<%= input_filed_id %>').value = partner_id
+      $('partner_search').value = "";
+  }
+  
+  function ClearPartner()
+  {
+    $('partner_view_inner').innerHTML = "";
+    $('<%= input_filed_id %>').value = "";
+  }
+  
+</script>
+
+<input type="hidden" id="<%= input_filed_id %>" name="<%= input_filed_name %>" value="<%= partner ? partner.id : 0 %>" />

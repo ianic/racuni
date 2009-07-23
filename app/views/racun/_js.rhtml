@@ -1,0 +1,17 @@
+<script>
+  racun = new RacunEdit();
+  <% @racun.stavke.each_index do |index| -%>
+      racun.dodajStavku(new StavkaEdit(<%= index %>));
+  <% end -%>
+  racun.izracunajIznos();
+  Form.focusFirstElement('form');
+
+  function OnSubmit()
+  {
+    racun.onsubmit();
+    Element.toggle("upis");
+    Element.toggle("upis_indicator");
+    return true;
+  }
+</script>
+

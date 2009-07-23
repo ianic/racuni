@@ -1,0 +1,36 @@
+#filter{:style => 'display:none'}
+  %form
+    %h5 filter
+    .sub_form  
+      = row_element naziv_partnera(@class), render_partner_select(@partner_id)
+      .row
+        = element "godina", select_godina(@godina)
+        = element "mjesec", select_mjesec(@mjesec)
+      = row_element "stavka", render(:partial => "racun/stavka_select")
+      = row_element "redaka po stranici", select_per_page(@per_page)
+      .cleaner
+    = submit_tag('PRIKAŽI', :class => "button")
+  
+= render_paginator(@stavke_pages, @params)
+
+%table.fin.sortable#racuni
+  %thead
+    %tr 
+      %th broj
+      %th datum
+      %th kupac
+      %th opis
+      %th količina
+      %th cijena
+      %th iznos
+  %tbody
+    = render_collection 'racun/stavka_row', @stavke, 'stavka'  
+  %tfoot
+    %tr
+      %td= @sume["broj"]
+      %th/
+      %th/
+      %th/
+      %td.m= k @sume["kolicina"], 0
+      %td.m= m @sume["cijena"]
+      %td.m= m @sume["iznos"]

@@ -1,0 +1,7 @@
+%h5 osnovno
+.sub_form
+  = row_element partner_naziv(@racun), partner_select('racun', 'partner')
+  .row
+    = element "datum računa", date_select_hr('racun', 'datum')
+    = element("rok plaćanja", text_field('racun', 'rok_placanja', :class => "ms")) if !@racun.gotovinski?
+  .cleaner

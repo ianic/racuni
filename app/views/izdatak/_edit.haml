@@ -1,0 +1,12 @@
+= error_messages_for 'izdatak', :object_name => @izdatak.class
+
+%form
+  .sub_form
+    = row_element naziv_partnera(@izdatak.class), render_partner_select(@izdatak)
+    = row_element "datum",        date_select_hr('izdatak', 'datum')
+    = row_element "način uplate", select('izdatak', 'tip_uplate', Izdatak::TIP_UPLATE)
+    = row_element "opis",         text_field('izdatak', 'opis', :size => 50)
+    = row_element "iznos",        text_field('izdatak', 'iznos', :class => "m", :currency => "true")
+    .cleaner
+  = submit_tag('UPIŠI', :class=>"button")
+  = hidden_field_tag 'type', @izdatak.class

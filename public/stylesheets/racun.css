@@ -1,0 +1,119 @@
+
+@media screen
+{
+  .dokument{ margin: 20px;}
+}
+
+.sender {
+        color: #000;
+        font: italic 7pt Arial;
+        margin: 20px 0 5px 350px;
+        width: 350px;}
+
+.dokument{ width: 715px; }
+.dokument_partner {     margin-bottom: 40px;}
+.dokument_partner .right { float:right; }
+
+/* header */
+.dokument_naziv {
+        font: bold 14pt/20pt  Arial;
+        color: #666;
+        letter-spacing: 2px;
+        border-bottom: 1px dotted #666;
+        border-top: 1px dotted #666;
+        margin-bottom: 10px;}
+
+.datum_head {
+        font: bold 9pt/11pt Arial;
+        color: #5d5d5d;
+        border: 1px dotted #666;
+        background: #ccc;
+        padding: 5px;
+        float: left;
+        width: 227px;}
+.dokument .datum {
+        font: bold 9pt/11pt Arial;
+        border: 1px solid #eee;
+        padding: 5px;
+        width: 227px;
+        float: left;
+        background-color: #eee; }
+.dokument .left { border-right: 0px; }
+.dokument .right { border-left: 0px; }
+
+/* stavke */
+.head_stavka { clear: both; margin-top: 1.8em; }
+.head_stavka_opis, .head_stavka_cijena, .head_stavka_kolicina, .head_stavka_iznos, .head_stavka_jedinica_mjere {
+        font: bold 9pt/11pt Arial;
+        border-top: 1px dotted #666;
+        border-bottom: 1px dotted #666;
+        background: #eee;
+        padding: 5px;
+        float: left;
+        width: 80px;
+        text-align:right;
+        border-left: 1px dotted #666;
+        height: 2.5em;  }
+.head_stavka_opis {     width: 365px; text-align:left; }
+.head_stavka_jedinica_mjere { width: 54px; text-align:center; }
+.head_stavka_iznos { border-right: 1px dotted #666;      }
+
+#view_stavka .opis, #view_stavka .jedinica_mjere, #view_stavka .cijena, #view_stavka .kolicina, #view_stavka .iznos{
+        font: bold 9pt/11pt Arial;
+        margin-left: 1px;
+        padding: 5px;
+        width: 80px;
+        float: left;
+        text-align:right;
+        border-bottom: dotted 1px #ccc;}
+#view_stavka .opis{ width: 365px; text-align: left; }
+#view_stavka .jedinica_mjere{ width: 54px; text-align: center; }
+
+
+/* footer */
+.footer {
+        padding-top: 10px;
+        text-align: center;
+        font: bold 7pt/9pt Arial;
+        border-top: 1px dotted #666;}
+
+/* ukupno */
+.ukupno {
+        text-align: left;
+        margin: 40px 0 20px 460px;
+        width: 245px;
+        padding: 4px;
+        background: #eee;
+        border: 1px solid #ccc;}
+
+.ukupno .naslov {
+        font: bold 11pt/11pt Arial;
+        margin: 3px 0;
+        color: #666;
+        letter-spacing: 4px;
+        text-align: center;}
+
+.ukupno .cola, .ukupno .colb, .ukupno .colc, .ukupno .colbc{
+        font: bold 9pt/11pt Arial;
+        text-align: right;
+        width: 80px;
+        border: 1px dotted #999;
+        color: #000;
+        background: #fff;
+        padding: 4px;
+        margin-right: 2px;
+        margin-top: 2px;
+        float:left;}
+
+.ukupno .cola{ color: #666; width: 80px; }
+.ukupno .colb{ width: 50px;     }
+.ukupno .colc{ width: 80px;     margin-right: 0; }
+.ukupno .colbc{ width: 142px; margin-right: 0; }
+.ukupno .colbold{ font: bold 12pt/16pt Arial; }
+
+.potpis{
+        margin-top: 60px;
+        margin-bottom: 40px;
+        margin-left: 555px;
+        width: 159px;
+        border-bottom: dotted 1px}

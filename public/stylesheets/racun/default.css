@@ -1,0 +1,131 @@
+#racun_ispis{
+  width: 601px;
+}
+@media print {
+  #racun_ispis { margin: 0px; padding:0px; }
+}
+
+#racun_ispis .partner_view
+{
+        border: 1px dotted #bababa;
+        height: 7em;
+        padding: 10px;
+        font: 9pt/11pt Arial;
+        width: 250px;
+}
+#racun_ispis .partner_view .naziv {
+        color: #000;
+        font: bold 10pt/11pt Arial;
+}
+#racun_ispis .partner_view .note{
+        font: bold 7pt Arial;
+}
+
+#racun_ispis .dokument_partner { margin-bottom: 40px; }
+#racun_ispis .dokument_partner .right { float: right; }
+
+/* header */
+#racun_ispis .dokument_naziv {
+        font: bold 14pt/20pt  Arial;
+        color: #666;
+        letter-spacing: 2px;
+        border-bottom: 1px dotted #666;
+        border-top: 1px dotted #666;
+        margin-bottom: 10px;}
+
+#racun_ispis .datum_head {
+        font: bold 9pt/11pt Arial;
+        color: #5d5d5d;
+        border: 1px dotted #666;
+        background: #ccc;
+        padding: 5px;
+        float: left;
+        width: 189px;}
+#racun_ispis .datum {
+        font: bold 9pt/11pt Arial;
+        border: 1px solid #eee;
+        padding: 5px;
+        width: 189px;
+        float: left;
+        background-color: #eee; }
+#racun_ispis .left { border-right: 0px; }
+#racun_ispis .right { border-left: 0px; }
+
+/* stavke */
+#racun_ispis .head_stavka { clear: both; margin-top: 1.8em; }
+#racun_ispis .head_stavka_opis, #racun_ispis .head_stavka_cijena, #racun_ispis .head_stavka_kolicina, #racun_ispis .head_stavka_iznos, #racun_ispis .head_stavka_jedinica_mjere {
+        font: bold 9pt/11pt Arial;
+        border-top: 1px dotted #666;
+        border-bottom: 1px dotted #666;
+        background: #eee;
+        padding: 5px;
+        float: left;
+        width: 80px;
+        text-align:right;
+        border-left: 1px dotted #666;
+        height: 2.5em;  }
+#racun_ispis .head_stavka_opis {     width: 250px; text-align:left; }
+#racun_ispis .head_stavka_jedinica_mjere { width: 54px; text-align:center; }
+#racun_ispis .head_stavka_iznos { border-right: 1px dotted #666;      }
+
+#racun_ispis .opis, #racun_ispis .jedinica_mjere, #racun_ispis .cijena, #racun_ispis .kolicina, #racun_ispis .iznos{
+        font: bold 9pt/11pt Arial;
+        margin-left: 1px;
+        padding: 5px;
+        width: 80px;
+        float: left;
+        text-align:right;
+        border-bottom: dotted 1px #ccc;}
+#racun_ispis .opis{ width: 250px; text-align: left; }
+#racun_ispis .jedinica_mjere{ width: 54px; text-align: center; }
+
+
+/* footer */
+#racun_ispis .footer {
+        padding-top: 10px;
+        text-align: center;
+        font: bold 7pt/9pt Arial;
+        border-top: 1px dotted #666;}
+
+/* ukupno */
+#racun_ispis .ukupno {
+        text-align: left;
+        margin: 40px 0 20px 345px;
+        width: 245px;
+        padding: 4px;
+        background: #eee;
+        border: 1px solid #ccc;}
+
+#racun_ispis .ukupno .naslov {
+        font: bold 11pt/11pt Arial;
+        margin: 3px 0;
+        color: #666;
+        letter-spacing: 4px;
+        text-align: center;}
+
+#racun_ispis .ukupno .cola, #racun_ispis .ukupno .colb, #racun_ispis .ukupno .colc, #racun_ispis .ukupno .colbc{
+        font: bold 9pt/11pt Arial;
+        text-align: right;
+        width: 80px;
+        border: 1px dotted #999;
+        color: #000;
+        background: #fff;
+        padding: 4px;
+        margin-right: 2px;
+        margin-top: 2px;
+        float:left;}
+
+#racun_ispis .ukupno .cola{ color: #666; width: 80px; }
+#racun_ispis .ukupno .colb{ width: 50px;     }
+#racun_ispis .ukupno .colc{ width: 80px;     margin-right: 0; }
+#racun_ispis .ukupno .colbc{ width: 142px; margin-right: 0; }
+#racun_ispis .ukupno .colbold{ font: bold 12pt/16pt Arial; }
+
+#racun_ispis .potpis{
+        margin-top: 60px;
+        margin-bottom: 40px;
+        margin-left: 440px;
+        width: 159px;
+        border-bottom: dotted 1px}
+
+}

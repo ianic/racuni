@@ -1,0 +1,72 @@
+#panel1
+  .accordionTabTitleBar Partneri
+  .accordionTabContentBox
+    %ul
+      %li= link_to "Adresar", :controller=>"partner", :action=>:book
+      %li= link_to "Kupci", :controller=>"partner", :action=>:kupci
+      %li= link_to "Dužnici", :controller=>"partner", :action=>:duznici   
+#panel2         
+  .accordionTabTitleBar Računi
+  .accordionTabContentBox
+    %ul
+      %li= link_to "Novi", :controller => 'racun' , :action => :new 
+      %li= link_to "Novi Gotovinski", :controller => 'racun' , :action => :new_gotovinski 
+      %li Pregled
+        %ul
+          %li= link_to "Svi", :controller => 'racun' , :action => 'pregled' 
+          %li= link_to "Neplaćeni", :controller => 'racun' , :action => 'pregled', :placanje => 2 
+          %li= link_to "Dospjeli", :controller => 'racun' , :action => 'pregled', :placanje => 1
+      %li= link_to "Pregled stavki", :controller => 'racun' , :action => 'pregled_stavki' 
+#panel3    
+  .accordionTabTitleBar Ulazni Računi
+  .accordionTabContentBox
+     %ul
+      %li= link_to "Novi", :controller => 'ulazni_racun' , :action => :new 
+      %li Pregled
+        %ul
+          %li= link_to "Svi", :controller => 'ulazni_racun' , :action => 'pregled' 
+          %li= link_to "Neplaćeni", :controller => 'ulazni_racun' , :action => 'pregled', :placanje => 2 
+          %li= link_to "Dospjeli", :controller => 'ulazni_racun' , :action => 'pregled', :placanje => 1     
+      %li= link_to "Pregled stavki", :controller => 'ulazni_racun' , :action => 'pregled_stavki' 
+#panel4    
+  .accordionTabTitleBar Gotovinski Računi
+  .accordionTabContentBox
+    %ul
+      %li= link_to "Novi", :controller => 'gotovinski_racun' , :action => :new 
+      %li= link_to "Pregled", :controller => 'gotovinski_racun' , :action => 'pregled' 
+      %li= link_to "Pregled stavki", :controller => 'gotovinski_racun' , :action => 'pregled_stavki' 
+#panel5    
+  .accordionTabTitleBar Ponude
+  .accordionTabContentBox
+    %ul
+      %li= link_to "Nova", :controller => 'ponuda' , :action => :new 
+      %li= link_to "Pregled", :controller => 'ponuda' , :action => 'pregled' 
+      %li= link_to "Pregled stavki", :controller => 'ponuda' , :action => 'pregled_stavki' 
+#panel6      
+  .accordionTabTitleBar Poslovne Knjige	
+  .accordionTabContentBox 
+    %ul
+      %li= link_to "Knjiga Izlaznih Računa", :controller => "knjiga", :action => "kira"  
+      %li= link_to "Knjiga Ulaznih Računa",  :controller => "knjiga", :action => "kura"  
+      %li= link_to "Knjiga Primtaka i Izdataka",  :controller => "knjiga", :action => "kpi" 
+      %li= link_to "PDV obrazac",  :controller => "knjiga", :action => "pdv"
+#panel7    
+  .accordionTabTitleBar Izdaci	
+  .accordionTabContentBox 
+    %ul
+      %li= link_to "Novi", :controller => "izdatak", :action => :edit 
+      %li= link_to "Pregled", :controller => "izdatak", :action => "pregled" 
+#panel8    
+  .accordionTabTitleBar Primici
+  .accordionTabContentBox 
+    %ul
+      %li= link_to "Novi", :controller => "primitak", :action => :edit, :type =>  "Primitak" 
+      %li= link_to "Pregled", :controller => "primitak", :action => "pregled"
+#panel9          
+  .accordionTabTitleBar Izvodi
+  .accordionTabContentBox 
+    %ul
+      %li= link_to "Uplate / Isplate", :controller => "izvod" 
+      
+      
+<script>  new Rico.Accordion( 'menu_content', {panelHeight:150,onLoadShowTab:3} );  </script>

@@ -1,0 +1,98 @@
+<%= render :partial => "filter" %>
+
+<% if @kpi.size > 0  %>
+<table class="fin">
+  <thead>
+  <tr>
+    <th colspan="4"></th>
+    <th colspan="5">primici</th>
+    <th colspan="5">izdaci</th>
+  </tr>
+  <tr>    
+  	<th>r.br.</th> 
+  	<th>nadnevak</th> 
+  	<th>broj temeljnice</th>  
+  	<th>opis&nbsp;isprava</th>  
+  	
+  	<th>u gotovini</th>
+  	<th>na žiro</th>
+  	<th>u naravi</th>
+  	<th>porez</th>	
+  	<th>ukupno</th>
+  	
+  	<th>u gotovini</th>
+  	<th>na žiro</th>
+  	<th>u naravi</th>
+  	<th>porez</th>	
+  	<th>ukupno</th>  	
+  </tr>  
+  </thead>
+  <tbody>
+<%
+	@primici_u_gotovini, @primici_na_ziro, @primici_u_naravi, @primici_porez, @primici_ukupno = 0,0,0,0,0
+	@izdaci_u_gotovini, @izdaci_na_ziro, @izdaci_u_naravi, @izdaci_porez, @izdaci_ukupno = 0,0,0,0,0
+	
+	@rb = 1
+	
+	for pi in @kpi %>
+	<tr class="<%= even_odd(@rb) %>">
+		<td><%= @rb %></td>
+		<td><%= d pi.datum %></td>
+		<td><%= pi.broj_temeljnice %></td>
+		<td><%= pi.opis %></td>
+		
+		<% if pi.primitak? 
+		  @primici_u_gotovini += pi.u_gotovini.to_f
+		  @primici_na_ziro += pi.na_ziro.to_f
+		  @primici_u_naravi += pi.u_naravi.to_f
+		  @primici_porez += pi.pdv.to_f 
+		  @primici_ukupno += pi.ukupno.to_f
+		else
+		  @izdaci_u_gotovini += pi.u_gotovini.to_f
+		  @izdaci_na_ziro += pi.na_ziro.to_f
+		  @izdaci_u_naravi += pi.u_naravi.to_f
+		  @izdaci_porez += pi.pdv.to_f 
+		  @izdaci_ukupno += pi.ukupno.to_f
+		%>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>		  
+		<% end %>
+	  <td align="right"><%= m pi.u_gotovini %> </td>
+	  <td align="right"><%= m pi.na_ziro %> </td>
+	  <td align="right"><%= m pi.u_naravi %> </td>
+	  <td align="right"><%= m pi.pdv %> </td>
+	  <td align="right"><%= m pi.ukupno %> </td>
+	  
+	  <% if pi.primitak?  %> 
+	    <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		<% end %>
+	</tr>
+<%
+  @rb += 1  
+  
+  end %>
+  </tbody>
+  <tfoot>
+  <tr>
+    <th colspan="4"></th>
+    <td align="right"><%= m @primici_u_gotovini %></td>
+    <td align="right"><%= m @primici_na_ziro %></td>
+    <td align="right"><%= m @primici_u_naravi %></td>
+    <td align="right"><%= m @primici_porez %></td>
+    <td align="right"><%= m @primici_ukupno %></td>
+    <td align="right"><%= m @izdaci_u_gotovini %></td>
+    <td align="right"><%= m @izdaci_na_ziro %></td>
+    <td align="right"><%= m @izdaci_u_naravi %></td>
+    <td align="right"><%= m @izdaci_porez %></td>
+    <td align="right"><%= m @izdaci_ukupno %></td>
+  </tr>
+  </tfoot>
+</table>  
+<%end %>

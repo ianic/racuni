@@ -1,0 +1,37 @@
+<% if links %>
+<script>
+  function ShowRacunPopup(racun_id, partner_id, broj_racuna,  uuid, event)
+  {
+    popup_div = 'popup_' + racun_id;
+    if (Element.empty(popup_div))
+    {
+      var links = ''
+      <% links.each do |l| -%>
+        <% if l -%>
+          links += '<%= escape_javascript(l) %><br />';
+        <% else -%>
+          links += '<div class="menu_separator"></div>';
+        <% end -%>
+      <% end -%>
+      links = links.gsub('1234', racun_id).gsub('5678', partner_id).gsub('9999', uuid)
+      links = links.gsub('broj_racuna', broj_racuna);
+
+      $(popup_div).innerHTML = links;
+
+      Event.observe(document, "mouseup", function(event) { if (Event.element(event) != $(popup_div)) { Element.hide(popup_div);} }, true);
+      //document.addEventListener("mouseup", function(event) { if (Event.element(event) != $(popup_div)) { Element.hide(popup_div);} }, true);
+    }
+    Element.show(popup_div);
+  }
+
+  function ShowPopup(event)
+  {
+    e = $('popup_menu');
+    new Effect.Appear(e, {duration: 0.3});
+    Element.show('popup_outer');
+
+    e.style.left = event.clientX;
+    e.style.top = event.clientY;
+  }
+</script>
+<% end %>

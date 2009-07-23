@@ -1,0 +1,22 @@
+<%= render_csv do |csv|
+      csv << ["R.BR.", "BROJ", "NADNEVAK", "DOBAVLJA� NAZIV", "DOBAVLJA� MB/JMBG", "BEZ POREZA",  "UKUPNO", "OPOREZIVI DIO", "PREDPOREZ UKUPNO", "PREDPOREZ MO�E SE ODBITI", "PREDPOREZ NE MO�E SE ODBITI", "DATUM PLA�ANJA"]
+	    @rb = 1
+	    for placanje in @placanja     
+        csv << [@rb, 
+          placanje.racun.broj, 
+          d(placanje.racun.datum),
+          placanje.racun.partner.naziv,
+          placanje.racun.partner.porezni_broj,
+          m(placanje.bez_poreza),
+          m(placanje.iznos),
+          m(placanje.porezna_osnovica),
+          m(placanje.pdv),
+          m(placanje.pdv_moze_se_odbiti),
+          m(placanje.pdv_nemoze_se_odbiti),
+          d(placanje.datum)]
+	      @rb += 1 
+      end
+      csv << ["","","","","", m(@sume['bez_poreza']), m(@sume['iznos']), m(@sume['porezna_osnovica']), m(@sume['pdv']), m(@sume['pdv_moze_se_odbiti']), m(@sume['pdv_nemoze_se_odbiti'])]
+    end
+-%>
+

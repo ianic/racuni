@@ -1,0 +1,9 @@
+#filter{:style => 'display:none'}
+  %form
+    %h5 filter
+    .sub_form     
+      = row_element "godina", select_godina(@godina)
+      .cleaner
+    = submit_tag 'PRIKAŽI', :class => "button"
+    
+= render_paginator nil, params

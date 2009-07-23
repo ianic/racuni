@@ -1,0 +1,37 @@
+<%
+  @stavka = stavka
+  (index = stavka_counter) if !index
+  opis_id = "stavka_#{index}_opis"
+%>
+<div id="stavka_<%= index %>" >
+
+  <div class="stavka_opis">
+    <%= text_field 'stavka', 'opis', :index => index, 'autocomplete' => "off" %>
+    <%= indicator("#{opis_id}_indicator") %>
+    <div class="auto_complete" id="<%= opis_id %>_auto_complete" ></div>
+  </div>
+  <div class="cleaner"></div>
+  <div class="stavka_jedinica_mjere"><%= text_field 'stavka', 'jedinica_mjere', :index => index %></div>
+  <div class="stavka_cijena"><%= text_field 'stavka', 'cijena', :index => index, :currency => "true" %></div>
+  <div class="stavka_kolicina"><%= text_field 'stavka', 'kolicina', :index => index, :currency => "true" %></div>
+  <div class="stavka_iznos"><%= text_field 'stavka', 'iznos', :index => index, :disabled => true, :class => "mb", :currency => "true" %></div>
+  <div class="stavka_del"><%= image_tag("delete.gif", :id=>"stavka_#{index}_brisi", :title => "Briši Stavku") %></div>
+  <div class="cleaner"></div>
+
+  <script>
+    new Ajax.Autocompleter('<%= opis_id %>', '<%= opis_id %>_auto_complete', '/user/stavka_auto_complete?partner_id=<%= @racun.partner_id %>',
+    {
+     afterUpdateElement: function(element, selectedElement)
+     {
+       $('<%= "stavka_#{index}_cijena" %>').value = $F(selectedElement.childNodes[1]);
+       $('<%= "stavka_#{index}_jedinica_mjere" %>').value = $F(selectedElement.childNodes[2]);
+       Field.activate('<%= "stavka_#{index}_cijena" %>');
+       Field.activate('<%= "stavka_#{index}_kolicina" %>');
+     },
+     minChars: 1,
+     indicator: '<%= opis_id %>_indicator',
+     paramName: "opis"
+    });
+  </script>
+
+</div>

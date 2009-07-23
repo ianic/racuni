@@ -1,0 +1,35 @@
+#filter
+  %form
+    %h5 period
+    .sub_form     
+      .row
+        = element "godina", select_godina(@godina)
+        = element "mjesec", select_mjesec(@mjesec)
+      .cleaner
+    = submit_tag 'PRIKAŽI', :class => "button"
+
+%table.fin#racuni
+  %thead
+    %tr 
+      %th 
+        kategorija
+        %a{:href => "/docs/PDV.pdf"} ?
+      %th vrijednost
+      %th pdv
+  %tbody
+    - @racuni_iznosi.keys.sort.each do |key|
+    %tr
+      %th= key
+      %th= m @racuni_iznosi[key][:iznos]
+      %th= m @racuni_iznosi[key][:pdv]	    
+    - end
+    - @ulazni_racuni_iznosi.keys.sort.each do |key|
+    %tr
+      %th= key
+      %th= m @ulazni_racuni_iznosi[key][:iznos]
+      %th= m @ulazni_racuni_iznosi[key][:pdv]	    
+    - end
+    %tr
+      %th IV. (II. - III.)
+      %th
+      %th= m( (begin @racuni_iznosi['II'][:pdv] rescue 0 end) - (begin @ulazni_racuni_iznosi['III'][:pdv] rescue 0 end) )

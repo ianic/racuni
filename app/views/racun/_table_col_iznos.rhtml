@@ -1,0 +1,6 @@
+<%= div_iznos(racun.iznos) if !racun.neplacen? %>
+<%= div_neplaceni_iznos(racun.za_naplatu, racun.kasni?)%>
+
+<% if ima_placanja?(racun) %>
+<script>new InPlaceAjaxEditor('racun_iznos_<%= racun.id %>',  '<%= url_for :action => 'edit_placanje', :id => racun.id %>');</script>
+<% end %>

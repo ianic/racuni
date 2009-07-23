@@ -1,0 +1,5 @@
+aws_access_key: '0WXAG5TR3RZG972M90G2'
+aws_secret_access_key: 'iHMVrficWdTdsHLy1vqCPhr8gM118GEgkC5m/yyN'
+aws_bucket_name_prefix: 'igoranic_racuni'
+options:
+  use_ssl: false #set it to true or false

@@ -1,0 +1,18 @@
+<%= render_csv do |csv|
+      csv << ["R.BR.", "BROJ",  "NADNEVAK",  "KUPAC NAZIV",  "KUPAC MB/JMBG", "IZNOS",  "OSNOVICA", "POREZ",  "DATUM PLA�ANJA"]
+	    @rb = 1
+	    for racun in @racuni      
+        csv << [@rb, 
+          racun.broj, 
+          d(racun.racun.datum),
+          racun.partner.naziv,
+          racun.partner.porezni_broj,
+          m(racun.iznos),
+          m(racun.bez_poreza),
+          m(racun.pdv),
+          d(racun.datum)]
+        @rb +=  1
+      end
+      csv << ["","","","","", m(@sume['iznos']), m(@sume['bez_poreza']), m(@sume['pdv'])]
+    end
+-%>

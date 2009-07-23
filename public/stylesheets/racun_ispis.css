@@ -1,0 +1,31 @@
+ .clear { float:none; clear: both; }
+
+ .document{ margin-top:5mm; margin-left: 20mm; }
+
+ #top {
+   background:#B5CBE7 none repeat scroll 0%;
+   border-bottom: 6px solid #4C4C4C;
+   height: 29px;
+   margin: 0pt;
+   padding-right:25px;
+   text-align: right;
+   white-space:nowrap;
+   min-width: 600px;
+ }
+
+ #top_title {
+   font-family:"Trebuchet MS",verdana;
+   float: left;
+   margin-left: 10px;
+   color:#4C4C4C;
+   font-size:20px;
+   font-weight:bold;
+   text-transform:uppercase;
+ }
+
+ img {border: 0px none;}
+
+ @media print {
+   #top{ display: none; }
+   .document { margin: 0px; padding:0px; }
+}

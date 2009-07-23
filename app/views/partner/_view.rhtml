@@ -1,0 +1,9 @@
+<% partner = view -%>
+<div class="partner_view" id="partner_view_inner">
+<% if partner -%>
+  <div class="naziv"><%=h partner.naziv %></div>
+  <div><%=h partner.adresa %></div>
+  <div><%=h partner.mjesto %></div>
+  <div><span class="note">porezni broj:</span> <%=h partner.porezni_broj %></div>
+<% end -%>
+</div>

@@ -1,0 +1,23 @@
+#filter{:style => 'display:none'}
+  %form
+    %h5 filter
+    .sub_form 
+      .row
+        = element "godina", select_godina(@godina)
+        = element "mjesec", select_mjesec(@mjesec)    
+      .cleaner
+    = submit_tag('PRIKAŽI', :class => "button")
+    
+= render_paginator(nil, nil, true, false)
+
+%table.fin.sortable
+  %thead
+    %tr
+      %th opis
+      %th jedinica mjere
+      %th količina
+      %th iznos
+      %th prosječna<br />cijena
+      %th broj<br />računa
+  %tbody
+    = render_collection "stavka_row", @stavke, 'stavka'

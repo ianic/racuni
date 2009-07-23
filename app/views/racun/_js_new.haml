@@ -1,0 +1,11 @@
+<script>
+  function OnSubmit()
+  {
+    if ($('racun_partner_id').value == 0) {
+      = "alert('#{partner_naziv(@racun)} nije odabran!');"
+      return false;
+    }
+    return true;
+  }
+   Form.focusFirstElement('form');
+</script>

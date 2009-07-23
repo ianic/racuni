@@ -1,0 +1,48 @@
+﻿<%= render :partial => "filter" %>
+
+<% if @racuni.size > 0 %>
+<table class="fin" id="kira">
+  <thead>
+  <tr>
+  	<th>r.br.</th>  
+  	<th>broj</th>  
+  	<th>nadnevak</th>  
+  	<th>kupac naziv</th>
+  	<th>kupac mb/jmbg</th>  	  
+  	<th>iznos</th>
+  	<th>osnovica</th>  	
+  	<th>porez</th>  	
+  	<th>datum<br />plaćanja</th>  	
+  </tr>  
+  </thead>
+  <tbody>
+<%
+	@rb = 1
+	for racun in @racuni %>
+	<tr class="<%= even_odd(@rb) %>">
+		<td><%= @rb %></td>
+		<td><%= racun.racun.broj_opis %></td>
+		<td class="d"><%= d racun.racun.datum %></td>
+		<td><%= render_partner(racun.partner) %></td>	
+		<td><%= racun.partner.porezni_broj %></td>	
+		<td class="m"><%= m(racun.iznos) %></td>	
+		<td class="m"><%= m(racun.bez_poreza) %></td>	
+		<td class="m"><%= m(racun.pdv) %></td>	
+		<td class="d"><%= d racun.datum %></td>
+	</tr>
+<%
+  	@rb += 1
+	end
+%>
+  </tbody>
+  <tfoot>	
+	  <tr>
+		  <th colspan="5"></th>	
+		  <td align="right"><%= m @sume['iznos'] %></td>
+		  <td align="right"><%= m @sume['bez_poreza'] %></td>
+		  <td align="right"><%= m @sume['pdv'] %></td>
+		  <th></th>	
+	  </tr>
+	</tfoot>
+</table>
+<% end %>

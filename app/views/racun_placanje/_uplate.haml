@@ -1,0 +1,11 @@
+%h5 uplate
+.sub_form
+  %table.fin
+    %thead
+      %tr 
+        %th datum
+        %th dokument
+        %th iznos
+        %th način uplate
+    %tbody
+      = render_collection 'racun_placanje/uplata', @racun.placanja, 'placanje'

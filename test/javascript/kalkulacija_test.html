@@ -1,0 +1,154 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>JavaScript unit test file</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <script src="assets/prototype.js" type="text/javascript"></script>
+  <script src="assets/unittest.js" type="text/javascript"></script>
+  
+  <script src="../../public/javascripts/kalkulacija.js" type="text/javascript"></script>
+  
+  <link rel="stylesheet" href="assets/unittest.css" type="text/css" />
+  <style>
+    input{ border:1px solid #6C94C0; color: #333; background-color: #ffd; }
+    input.m { text-align:right; width:6em; }
+    input.b { font-weight: bold; color: #666; }
+    input.ms { text-align:right; width:3em; }
+    input:disabled, input[readonly] { border-color: #ccc; color: #000; background-color: #fff; }    
+    .kalkulacija_stavka { width:500px; height: 130px; font-family:Tahoma; font-size:10px; text-transform:uppercase; color:#444; position:relative; }
+    .kalkulacija_stavka .left{ position: relative; width: 250px; float: left; margin-bottom: 5px; vertical-align:baseline;}
+    .kalkulacija_stavka .right{ position: relative; width: 250px; float: right; text-align: right; margin-bottom: 5px;}
+    .kalkulacija_stavka .label{ float:left; width:56px; line-height: 20px; }
+    
+  </style>
+</head>
+<body>
+
+<div id="content">
+
+  <div id="header">
+    <h1>JavaScript unit test file</h1>
+    <p>
+      This file tests <strong>kalkulacija.js</strong>.
+    </p>
+  </div>
+  <br/><br/>
+  
+  <div id="stavka_0" class="kalkulacija_stavka">
+    <div class="left">
+        <div class="label">količina:</div><input id="stavka_0_kolicina" class="m">
+    </div>
+    <div class="right">
+      cijena: <input id="stavka_0_cijena" class="m"></input>
+      <input id="stavka_0_vrijednost" class="m" readonly  title="vrijednost"></input>
+    </div>
+    
+    <div class="left">
+      <div class="label">popust:</div><input id="stavka_0_popust_postotak" class="ms" title="popust %"></input>%
+      <input id="stavka_0_popust" class="m" readonly title="popust Kn"></input>
+    </div>
+    <div class="right">
+      fakturna: <input id="stavka_0_fakturna_cijena" class="m" readonly title="fakturna cijena"></input>
+      <input id="stavka_0_fakturna_vrijednost" class="m" readonly title="fakturna vrijednost"></input>
+    </div>
+    
+    <div class="left">
+      <div class="label">trošak:</div><input id="stavka_0_trosak" class="m" title="trošak Kn"></input>
+    </div>
+    <div class="right">
+      nabavna: <input id="stavka_0_nabavna_cijena" class="m" readonly title="nabavna cijena"></input>
+      <input id="stavka_0_nabavna_vrijednost" class="m" readonly title="nabavna vrijednost"></input>
+    </div>
+    
+    <div class="left">
+      <div class="label">marža:</div><input id="stavka_0_marza_postotak" class="m" title="marža %"></input>%
+      <input id="stavka_0_marza" class="m" readonly title="marža Kn"></input>
+    </div>
+    <div class="right">    
+      bez poreza: <input id="stavka_0_cijena_bez_poreza" class="m" title="cijena bez poreza"></input>
+      <input id="stavka_0_vrijednost_bez_poreza" class="m" readonly title="vrijednost bez poreza"></input>
+    </div
+    
+    <div class="left">
+      <div class="label">porez:</div><input id="stavka_0_porez_postotak" class="ms" title="porez %"></input>%
+      <input id="stavka_0_porez" class="ms" readonly title="porez Kn"></input>
+    </div>
+    <div class="right">
+      s porezom: <input id="stavka_0_cijena_s_porezom" class="m b" title="cijena s porezom"></input>
+      <input id="stavka_0_vrijednost_s_porezom" class="m" readonly title="vrijednost s porezom"></input>
+    </div>
+  </div>
+  <!-- Log output -->
+  <div id="testlog"> </div>
+
+</div>
+
+<script type="text/javascript">
+// <![CDATA[
+
+  new Test.Unit.Runner({
+    
+    // replace this with your real tests
+    
+    setup: function() {
+      
+    },
+    
+    teardown: function() {
+      
+    },
+    
+    testUI: function() { with(this) {
+      var k = new KalkulacijaStavka({kolicina: 10, cijena: 10, trosak:20, popust_postotak: 10, marza_postotak: 30});
+      k.bindElements();
+      k.write();
+    }},
+    
+    testOsnovno: function() { with(this) {
+      var k = new KalkulacijaStavka({kolicina: 10, cijena: 10});
+      assertEqual(10, k.kolicina);
+      assertEqual(10, k.cijena);
+      assertEqual(100, k.vrijednost);
+            
+      assertEqual(10, k.fakturna_cijena);      
+      assertEqual(100, k.fakturna_vrijednost);
+      
+      assertEqual(10, k.nabavna_cijena);
+      assertEqual(100, k.nabavna_vrijednost);
+      
+      assertEqual(10, k.cijena_bez_poreza);
+      assertEqual(100, k.vrijednost_bez_poreza);
+      
+      assertEqual(12.2, k.cijena_s_porezom);
+      assertEqual(122, k.vrijednost_s_porezom);
+    }},
+    
+    test2: function() { with(this) {
+      var k = new KalkulacijaStavka({kolicina: 10, cijena: 10, trosak:20, popust_postotak: 10, marza_postotak: 30});
+      assertEqual(10, k.kolicina);
+      assertEqual(10, k.cijena);
+      assertEqual(100, k.vrijednost);
+      
+      assertEqual(90, k.fakturna_vrijednost);            
+      assertEqual(9, k.fakturna_cijena);      
+      
+      assertEqual(110, k.nabavna_vrijednost);
+      assertEqual(11, k.nabavna_cijena);
+      
+      assertEqual(143, k.vrijednost_bez_poreza);
+      assertEqual(14.3, k.cijena_bez_poreza);
+      
+      assertEqual(174.46, k.vrijednost_s_porezom);
+      assertEqual(17.45, k.cijena_s_porezom);      
+      
+      assertEqual(31.46, k.porez); 
+      assertEqual(33, k.marza); 
+      assertEqual(10, k.popust); 
+    }},
+      
+  }, "testlog");
+// ]]>
+</script>
+</body>
+</html>

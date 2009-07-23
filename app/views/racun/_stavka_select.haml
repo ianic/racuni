@@ -1,0 +1,13 @@
+= text_field_tag('stavka', @stavka, :style => "width:300px;")
+.auto_complete#stavka_auto_complete
+= hidden_field_tag "stavka_id"
+%script
+  new Ajax.Autocompleter('stavka', 'stavka_auto_complete', '/user/stavka_auto_complete', 
+  {
+   afterUpdateElement: function(element, selectedElement) 
+   { 
+     $('stavka_id').value = $F(selectedElement.childNodes[3]);
+   },
+   minChars: 1,
+   paramName: "opis"
+  });

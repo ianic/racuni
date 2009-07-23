@@ -1,0 +1,28 @@
+= render :partial => "racun/filter", :locals => { :placanje => false }
+= render_paginator(@racuni_pages, @params)
+
+%table.fin.sortable#racuni
+  %thead
+    %tr
+      %th broj
+      %th kupac
+      %th datum
+      %th vrijedi dana
+      %th osnovica
+      %th pdv
+      %th iznos
+  %tbody
+    = render_collection 'table_row', @racuni, 'racun'
+  %tfoot
+    %tr
+      %td= @sume["broj"]
+      %th/
+      %th/
+      %th/
+      %td.m
+        = m @sume["osnovica"]
+        .popust{:title=>"Popust"}= m @sume["popust"] if @sume["popust"].to_f > 0
+      %td.m= m @sume["pdv"]
+      %td.m= m @sume["iznos"]
+
+= render :partial => "racun/popup_js", :locals => { :links => popup_links_ponuda() }

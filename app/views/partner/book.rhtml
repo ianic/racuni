@@ -1,0 +1,12 @@
+<div id="adresar_tabs"> 
+  <ul>  
+	<% @slova.each do |slovo| %> 
+		<li><%= link_to_function "#{slovo}", "ShowAdresarStranica('#{slovo}')", :id => "adresar_stranica_link_#{slovo}" %></li>
+	<% end %>
+  <li><a id="partner_new" title="Novi Partner" >NOVI</a></li>
+	</ul>	
+  <script>new InPlaceAjaxEditor('partner_new', '/partner/new/');</script>
+</div>
+
+<div id="adresar_content"></div>
+<div class="cleaner"></div>

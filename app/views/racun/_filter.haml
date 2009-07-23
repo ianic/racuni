@@ -1,0 +1,17 @@
+#filter{:style => 'display:none'}
+  %form{:id => 'filter_form'}
+    %h5 filter
+    .sub_form
+      = row_element naziv_partnera(@model_class), render_partner_select(@partner_id)
+      .row
+        = element "godina", select_godina(@godina)
+        = element "mjesec", select_mjesec(@mjesec)
+      .row
+        = element "iznos = ", text_field_tag('racun_iznos', @racun_iznos, :class => "m", :currency => "true")
+        = element "iznos od", text_field_tag('racun_iznos_od', @racun_iznos_od, :class => "m", :currency => "true")
+        = element "do", text_field_tag('racun_iznos_do', @racun_iznos_do, :class => "m", :currency => "true")
+      = row_element("plaćanje", select_placanje(@placanje)) if ima_placanja?
+      = row_element("način plaćanja", select_nacin_placanja(@tip_placanja)) if ima_placanja?
+      = row_element "redaka po stranici", select_per_page(@per_page)
+      .cleaner
+    = submit_tag 'PRIKAŽI', :class => "button"

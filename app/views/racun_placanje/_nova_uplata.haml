@@ -1,0 +1,10 @@
+= error_messages_for 'racun_placanje', :object_name => @racun_placanje.class
+%form
+  %h5 nova uplata
+  .sub_form
+    = row_element 'datum', date_select_hr('racun_placanje', 'datum')
+    = row_element 'dokument', text_field('racun_placanje', 'dokument')
+    = row_element 'iznos', text_field('racun_placanje', 'iznos', :class => "m", :currency => "true")
+    = row_element 'način uplate', select('racun_placanje', 'tip_uplate', Izdatak::TIP_UPLATE)
+    .cleaner
+  = link_to_add_placanje @racun.id

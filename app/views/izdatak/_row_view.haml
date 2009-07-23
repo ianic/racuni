@@ -1,0 +1,8 @@
+%tr{:id => "izdatak_#{izdatak.id}", :class => "#{even_odd(izdatak_counter)}" }
+  %td= izdatak.broj
+  %td.d= d izdatak.datum 
+  %td.partner= render_partner(izdatak)
+  %td= izdatak.opis
+  %td= tip_uplate_to_s(izdatak.tip_uplate)
+  %td.iznos= m izdatak.iznos
+%script="new InPlaceAjaxEditor('izdatak_#{izdatak.id}', '#{url_for(:action=> 'show', :id =>izdatak.id)}');"

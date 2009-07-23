@@ -1,0 +1,4 @@
+= render :partial => "racun/filter"
+= render_paginator(@racuni_pages, @params)
+= render :partial => "racun/table" 
+= render :partial => "racun/popup_js", :locals => { :links => popup_links_ulazni() }

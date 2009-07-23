@@ -1,0 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title><%= @title %></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <%= stylesheet_link_tag 'racun_ispis', :media=>"all" %>
+  <%= stylesheet_link_tag "racun/default", :media=>"all" %>
+</head>
+<body style="margin:0px; padding:0px;">
+  <%= render :partial => "racun_ispis/header" %>
+  <%= yield %>
+</body>
+</html>

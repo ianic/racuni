@@ -1,0 +1,87 @@
+<div class="document" style="width: 600px; font-family: Times New Roman; font-size: 10pt;color:black;">
+  <div style="height: 250px; position: relative;" >
+    <div style="position: absolute; left: 400px;">
+      <div style="margin-bottom: 5px;">Kupac:</div>
+      <div><%= @racun.partner.naziv %></div>
+      <div><%= @racun.partner.mjesto %></div>
+      <div><%= @racun.partner.adresa %></div>
+      <div>MB-porezni broj: <%= @racun.partner.porezni_broj %></div>
+    </div>
+
+    <div style="position: absolute; left: 20px;">
+      <div style="font-size: 15pt">" NEKTAR " <span style="font-size: 10pt">PČELARSKI OBRT</span></div>
+      <div>32 221 NUŠTAR</div>
+      <div>Kralja Zvonimira 1</div>
+      <div>Tel. 032/386-702</div>
+      <div>&nbsp;</div>
+      <div>10 431 Sveta Nedjelja, Novaki</div>
+      <div>Žugci 5B</div>
+      <div>Tel. 01/33 85 472</div>
+      <div>Fax. 01/33 85 473</div>
+      <div>GSM: 091/25 38 260</div>
+      <div>&nbsp;</div>
+      <div>JMBG-porezni broj: <%= @user.porezni_broj %></div>
+      <div>MBO: <%= @user.mbo %></div>
+      <div>Žiro-račun: <%= @user.ziro_racun %></div>
+      <div>
+        <%= "Rok plaćanja: #{@racun.rok_placanja} dana" if @racun.racun? %>
+        <%= "Ponuda vrijedi: #{@racun.rok_placanja} dana" if @racun.ponuda? %>
+      </div>
+    </div>
+
+    <div style="position: absolute; bottom:20px; right: 40px;"><%=d @racun.datum %></div>
+  </div>
+
+  <div style="font-size: 16pt; font-weight: bold; font-family: Arial; text-align: center; margin-top: 60px; margin-bottom: 40px;">
+    <%= "RAČUN - OTPREMNICA R-2" if @racun.racun?  %>
+    <%= "GOTOVINSKI RAČUN - OTPREMNICA R-2" if @racun.gotovinski?  %>
+    <%= "PONUDA R-2" if @racun.ponuda?  %>
+    br. <%= @racun.broj_dokumenta %>
+  </div>
+
+  <table style="margin-top: 40px; border: solid 1px #000;" cellpadding=0 cellspacing=0>
+  	<tr>		
+	  	<td style="width: 244px; border-right: solid 1px #000; height: 32px; text-align:center;">NAZIV ARTIKLA</td>
+	    <td style="width: 50px; border-right: solid 1px #000; height: 32px; text-align:center;">JED.<br>MJERE</td>
+	    <td style="width: 85px; border-right: solid 1px #000; height: 32px; text-align:center;">KOLIČINA</td>
+	    <td style="width: 85px; border-right: solid 1px #000; height: 32px; text-align:center;">JEDINIČNA<br>CIJENA</td>
+	    <td style="width: 130px; height: 32px; text-align:center;">CIJENA<br><span style="font-size: 7pt">(VRIJEDNOST BEZ POREZA)</span></td>	    
+    </tr>
+    <% @racun.stavke.each do |stavka| %>
+    <tr style="vertical-align: baseline; line-height: 20px; text-align:right; border-top: solid 1px #000;">
+      <td style="width: 244px; border-right: solid 1px #000; border-top: solid 1px #000; text-align: left;"><%= stavka.opis %></td>
+      <td style="width: 50px; border-right: solid 1px #000; height: 32px; border-top: solid 1px #000; text-align: center;"><%= stavka.jedinica_mjere %></td>
+      <td style="width: 85px; border-right: solid 1px #000; height: 32px; border-top: solid 1px #000;"><%=k  stavka.kolicina %></td>
+      <td style="width: 85px; border-right: solid 1px #000; height: 32px; border-top: solid 1px #000;"><%=m stavka.cijena %></td>
+      <td style="width: 130px; height: 32px; border-top: solid 1px #000;"><%=m stavka.iznos %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <div style="margin-top: 3px; text-align: right; line-height: 22px">
+    <div style="float: right; width: 150px;">
+      <div><%= m @racun.osnovica %></div>
+      <% if @racun.popust? %>
+      <div><%= m @racun.popust %></div>
+      <% end %>
+      <div><%= m @racun.pdv %></div>
+      <div style="font-weight: bold;"><%= m @racun.iznos %> kn</div>
+    </div>
+
+    <div style="float: right; width: 150px; text-align: right; ">
+      <div>UKUPNO:</div>
+      <% if @racun.popust? %>
+      <div>Popust:</div>
+      <% end %>
+      <div>PDV 22%:</div>
+      <div style="font-weight: bold;">UKUPNO ZA PLATITI:</div>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <div style=" margin-top: 150px; position: relative; height: 20px; width:600px">
+    <div style="position: absolute; top: 0px; left: 450px; width: 120px; text-align: center; border-top: solid 1px;">(Odgovorna osoba)</div>
+    <div style="position: absolute; top: 0px; left: 20px; width: 120px; text-align: center; border-top: solid 1px;">(Primio)</div>
+    <div style="position: absolute; top: 0px; left: 350px;">M.P.</div>
+  </div>
+</div>
