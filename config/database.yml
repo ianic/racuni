@@ -1,6 +1,6 @@
 development:
   adapter: mysql
-  database: nektar3
+  database: nektar
   username: root
   password:
   encoding: UTF8

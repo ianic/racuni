@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 22) do
+ActiveRecord::Schema.define(:version => 23) do
 
   create_table "gotovinski_racun", :force => true do |t|
     t.column "partner_id",      :integer,                                 :default => 0,      :null => false
@@ -14,10 +14,10 @@ ActiveRecord::Schema.define(:version => 22) do
     t.column "osnovica",        :decimal,  :precision => 18, :scale => 4, :default => 0.0,    :null => false
     t.column "popust_postotak", :decimal,  :precision => 18, :scale => 4, :default => 0.0,    :null => false
     t.column "popust",          :decimal,  :precision => 18, :scale => 4, :default => 0.0,    :null => false
-    t.column "pdv_postotak",    :decimal,  :precision => 18, :scale => 4, :default => 22.0,   :null => false
+    t.column "pdv_postotak",    :decimal,  :precision => 18, :scale => 4, :default => 23.0,   :null => false
     t.column "pdv",             :decimal,  :precision => 18, :scale => 4, :default => 0.0,    :null => false
     t.column "iznos",           :decimal,  :precision => 18, :scale => 4, :default => 0.0,    :null => false
-    t.column "napomena",        :text,                                    :default => "",     :null => false
+    t.column "napomena",        :text
     t.column "created_at",      :datetime
     t.column "updated_at",      :datetime
   end
@@ -95,14 +95,14 @@ ActiveRecord::Schema.define(:version => 22) do
     t.column "opis",           :string
     t.column "jedinica_mjere", :string
     t.column "cijena",         :decimal,               :precision => 18, :scale => 4, :default => 0.0, :null => false
-    t.column "broj_racuna",    :integer, :limit => 20,                                :default => 0,   :null => false
-    t.column "user_id",        :integer,                                              :default => 0,   :null => false
+    t.column "broj_racuna",    :integer, :limit => 21,                                :default => 0,   :null => false
+    t.column "user_id",        :integer,                                              :default => -1,  :null => false
   end
 
   create_table "partner_stavka_ids", :id => false, :force => true do |t|
     t.column "stavka_id",    :integer
-    t.column "broj_racuna",  :integer, :limit => 20, :default => 0, :null => false
-    t.column "zadnji_rs_id", :integer
+    t.column "broj_racuna",  :integer, :limit => 21, :default => 0, :null => false
+    t.column "zadnji_rs_id", :integer, :limit => 20
     t.column "partner_id",   :integer,               :default => 0, :null => false
   end
 
@@ -115,10 +115,10 @@ ActiveRecord::Schema.define(:version => 22) do
     t.column "osnovica",        :decimal,  :precision => 18, :scale => 4, :default => 0.0,  :null => false
     t.column "popust_postotak", :decimal,  :precision => 18, :scale => 4, :default => 0.0,  :null => false
     t.column "popust",          :decimal,  :precision => 18, :scale => 4, :default => 0.0,  :null => false
-    t.column "pdv_postotak",    :decimal,  :precision => 18, :scale => 4, :default => 22.0, :null => false
+    t.column "pdv_postotak",    :decimal,  :precision => 18, :scale => 4, :default => 23.0, :null => false
     t.column "pdv",             :decimal,  :precision => 18, :scale => 4, :default => 0.0,  :null => false
     t.column "iznos",           :decimal,  :precision => 18, :scale => 4, :default => 0.0,  :null => false
-    t.column "napomena",        :text,                                    :default => "",   :null => false
+    t.column "napomena",        :text
     t.column "created_at",      :datetime
     t.column "updated_at",      :datetime
     t.column "user_id",         :integer,                                 :default => -1,   :null => false
@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(:version => 22) do
     t.column "godina",     :integer,                                                  :null => false
     t.column "broj",       :integer,                                                  :null => false
     t.column "datum",      :date,                                                     :null => false
-    t.column "opis",       :string,                                  :default => "",  :null => false
+    t.column "opis",       :string,                                                   :null => false
     t.column "tip_uplate", :integer,                                 :default => 0,   :null => false
     t.column "iznos",      :decimal,  :precision => 18, :scale => 4, :default => 0.0, :null => false
     t.column "created_at", :datetime
@@ -158,12 +158,12 @@ ActiveRecord::Schema.define(:version => 22) do
     t.column "osnovica",        :decimal,  :precision => 18, :scale => 4, :default => 0.0,    :null => false
     t.column "popust_postotak", :decimal,  :precision => 18, :scale => 4, :default => 0.0,    :null => false
     t.column "popust",          :decimal,  :precision => 18, :scale => 4, :default => 0.0,    :null => false
-    t.column "pdv_postotak",    :decimal,  :precision => 18, :scale => 4, :default => 22.0,   :null => false
+    t.column "pdv_postotak",    :decimal,  :precision => 18, :scale => 4, :default => 23.0,   :null => false
     t.column "pdv",             :decimal,  :precision => 18, :scale => 4, :default => 0.0,    :null => false
     t.column "iznos",           :decimal,  :precision => 18, :scale => 4, :default => 0.0,    :null => false
     t.column "placeno",         :decimal,  :precision => 18, :scale => 4, :default => 0.0,    :null => false
     t.column "placen",          :boolean,                                 :default => false,  :null => false
-    t.column "napomena",        :text,                                    :default => "",     :null => false
+    t.column "napomena",        :text
     t.column "created_at",      :datetime
     t.column "updated_at",      :datetime
     t.column "tip_placanja",    :integer,                                 :default => 0,      :null => false
@@ -227,7 +227,7 @@ ActiveRecord::Schema.define(:version => 22) do
     t.column "osnovica",        :decimal,  :precision => 18, :scale => 4, :default => 0.0,     :null => false
     t.column "popust_postotak", :decimal,  :precision => 18, :scale => 4, :default => 0.0,     :null => false
     t.column "popust",          :decimal,  :precision => 18, :scale => 4, :default => 0.0,     :null => false
-    t.column "pdv_postotak",    :decimal,  :precision => 18, :scale => 4, :default => 22.0,    :null => false
+    t.column "pdv_postotak",    :decimal,  :precision => 18, :scale => 4, :default => 23.0,    :null => false
     t.column "pdv",             :decimal,  :precision => 18, :scale => 4, :default => 0.0,     :null => false
     t.column "ostali_troskovi", :decimal,  :precision => 18, :scale => 4, :default => 0.0,     :null => false
     t.column "iznos",           :decimal,  :precision => 18, :scale => 4, :default => 0.0,     :null => false
@@ -237,7 +237,7 @@ ActiveRecord::Schema.define(:version => 22) do
     t.column "tip_placanja",    :integer,                                 :default => 0,       :null => false
     t.column "tip_knjizenja",   :integer,                                 :default => 0,       :null => false
     t.column "pdv_kategorija",  :string,                                  :default => "III.2", :null => false
-    t.column "napomena",        :text,                                    :default => "",      :null => false
+    t.column "napomena",        :text
     t.column "created_at",      :datetime
     t.column "updated_at",      :datetime
     t.column "user_id",         :integer,                                 :default => -1,      :null => false
@@ -249,11 +249,11 @@ ActiveRecord::Schema.define(:version => 22) do
   add_index "ulazni_racun", ["broj"], :name => "index_ulazni_racun_on_broj"
 
   create_table "ulazni_racun_placanje", :force => true do |t|
-    t.column "ulazni_racun_id", :integer,                                                 :null => false
-    t.column "dokument",        :string,                                  :default => "", :null => false
-    t.column "datum",           :date,                                                    :null => false
-    t.column "iznos",           :decimal,  :precision => 18, :scale => 4,                 :null => false
-    t.column "tip_uplate",      :integer,                                 :default => 0,  :null => false
+    t.column "ulazni_racun_id", :integer,                                                :null => false
+    t.column "dokument",        :string,                                                 :null => false
+    t.column "datum",           :date,                                                   :null => false
+    t.column "iznos",           :decimal,  :precision => 18, :scale => 4,                :null => false
+    t.column "tip_uplate",      :integer,                                 :default => 0, :null => false
     t.column "created_at",      :datetime
   end
 
