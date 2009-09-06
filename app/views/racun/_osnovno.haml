@@ -3,5 +3,5 @@
   = row_element partner_naziv(@racun), partner_select('racun', 'partner')
   .row
     = element "datum računa", date_select_hr('racun', 'datum')
-    = element("rok plaćanja", text_field('racun', 'rok_placanja', :class => "ms")) if !@racun.gotovinski?
+    = element("rok plaćanja", text_field('racun', 'rok_placanja', :class => "ms")) unless ( @racun.gotovinski? || @racun.new_record? )
   .cleaner

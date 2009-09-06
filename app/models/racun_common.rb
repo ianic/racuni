@@ -119,6 +119,14 @@ module RacunCommon
 
   def ponuda?
     return self.class == Ponuda
+  end  
+  
+  def ima_sifru?                             
+    ima = false
+    stavke.each do |stavka| 
+       ima = true if stavka.ima_sifru? 
+    end           
+    ima
   end
 
 end

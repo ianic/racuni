@@ -14,6 +14,6 @@ class Stavka < ActiveRecord::Base
 
   def broj_racuna
     attributes['broj_racuna'].to_i
-  end
-
+  end 
+  
 end

@@ -18,10 +18,10 @@ module RacunEdit
   end
 
   def new
-    if request.post?
+    if request.post?                    
       (redirect_to(:action => "edit", :id => @racun.id) && return) if @racun.save
     else
-     @racun.partner = Partner.find(params[:partner_id]) if params[:partner_id]
+      @racun.partner = Partner.find(params[:partner_id]) if params[:partner_id]
     end
     render :template => "racun/new"
   end

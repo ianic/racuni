@@ -41,14 +41,22 @@
   .clear
 
   .head_stavka
-    .head_stavka_opis Naziv
+    - if @racun.ima_sifru?                   
+      .head_stavka_sifra Šifra 
+      .head_stavka_opis Naziv    
+    - unless @racun.ima_sifru?              
+      .head_stavka_opis_sifra Šifra    
     .head_stavka_jedinica_mjere Jedinica Mjere
     .head_stavka_kolicina Količina
     .head_stavka_cijena Cijena
     .head_stavka_iznos Iznos
     .clear
     - @racun.stavke.each do |stavka|
-      .opis= h stavka.opis
+      - if @racun.ima_sifru?  
+        .sifra= stavka.sifra || "&nbsp;"
+        .opis= h stavka.opis_bez_sifre
+      - unless @racun.ima_sifru?
+        .opis_sifra= h stavka.opis_bez_sifre
       .jedinica_mjere= h stavka.jedinica_mjere
       .kolicina= k stavka.kolicina
       .cijena= m stavka.cijena

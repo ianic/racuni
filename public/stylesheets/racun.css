@@ -43,7 +43,7 @@
 
 /* stavke */
 .head_stavka { clear: both; margin-top: 1.8em; }
-.head_stavka_opis, .head_stavka_cijena, .head_stavka_kolicina, .head_stavka_iznos, .head_stavka_jedinica_mjere {
+.head_stavka_opis, .head_stavka_cijena, .head_stavka_kolicina, .head_stavka_iznos, .head_stavka_jedinica_mjere .head_stavka_sifra{
         font: bold 9pt/11pt Arial;
         border-top: 1px dotted #666;
         border-bottom: 1px dotted #666;
@@ -54,7 +54,8 @@
         text-align:right;
         border-left: 1px dotted #666;
         height: 2.5em;  }
-.head_stavka_opis {     width: 365px; text-align:left; }
+.head_stavka_opis {     width: 300px; text-align:left; }
+.head_stavka_sifra {    width: 65px; text-align:left; }
 .head_stavka_jedinica_mjere { width: 54px; text-align:center; }
 .head_stavka_iznos { border-right: 1px dotted #666;      }
 

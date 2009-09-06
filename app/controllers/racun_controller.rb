@@ -11,7 +11,8 @@ class RacunController < ApplicationController
   end
 
   def new
-    @racun =  @user.racuni.build(params[:racun])
+    @racun =  @user.racuni.build(params[:racun])  
+    @racun.rok_placanja = @user.racuni.find(:first, :conditions => "partner_id = #{@racun.partner_id}", :order => "id desc").rok_placanja rescue 15
     @title = @title || "Novi Izlazni Račun"
     super
   end

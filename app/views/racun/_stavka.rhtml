@@ -22,7 +22,9 @@
     new Ajax.Autocompleter('<%= opis_id %>', '<%= opis_id %>_auto_complete', '/user/stavka_auto_complete?partner_id=<%= @racun.partner_id %>',
     {
      afterUpdateElement: function(element, selectedElement)
-     {
+     {       
+       $('<%= "stavka_#{index}_opis" %>').value = selectedElement.childNodes[0].nodeValue;
+       
        $('<%= "stavka_#{index}_cijena" %>').value = $F(selectedElement.childNodes[1]);
        $('<%= "stavka_#{index}_jedinica_mjere" %>').value = $F(selectedElement.childNodes[2]);
        Field.activate('<%= "stavka_#{index}_cijena" %>');

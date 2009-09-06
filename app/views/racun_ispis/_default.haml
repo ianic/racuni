@@ -48,7 +48,7 @@
     .head_stavka_iznos Iznos
     .clear
     - @racun.stavke.each do |stavka|
-      .opis= h stavka.opis
+      .opis= h stavka.opis_bez_sifre
       .jedinica_mjere= h stavka.jedinica_mjere
       .kolicina= k stavka.kolicina
       .cijena= m stavka.cijena

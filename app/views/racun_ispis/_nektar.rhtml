@@ -49,7 +49,7 @@
     </tr>
     <% @racun.stavke.each do |stavka| %>
     <tr style="vertical-align: baseline; line-height: 20px; text-align:right; border-top: solid 1px #000;">
-      <td style="width: 244px; border-right: solid 1px #000; border-top: solid 1px #000; text-align: left;"><%= stavka.opis %></td>
+      <td style="width: 244px; border-right: solid 1px #000; border-top: solid 1px #000; text-align: left;"><%= stavka.opis_bez_sifre %></td>
       <td style="width: 50px; border-right: solid 1px #000; height: 32px; border-top: solid 1px #000; text-align: center;"><%= stavka.jedinica_mjere %></td>
       <td style="width: 85px; border-right: solid 1px #000; height: 32px; border-top: solid 1px #000;"><%=k  stavka.kolicina %></td>
       <td style="width: 85px; border-right: solid 1px #000; height: 32px; border-top: solid 1px #000;"><%=m stavka.cijena %></td>

@@ -18,6 +18,20 @@ class RacunStavka < ActiveRecord::Base
   
   def jedinica_mjere
     stavka ? stavka.jedinica_mjere : "kom"
+  end    
+  
+  def ima_sifru?
+    stavka.opis.include?('#') rescue false
+  end                 
+  
+  def sifra                     
+    stavka.opis.split('#')[1].strip if ima_sifru?
+  rescue 
+    nil
+  end                                     
+  
+  def opis_bez_sifre
+    ima_sifru? ? stavka.opis.split('#')[0].strip : opis
   end
 
 end
