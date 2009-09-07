@@ -22,7 +22,7 @@
   <%= stylesheet_link_tag 'themes/alphacube' %>
 </head>
 <body id="body" class="<%= sidebar_hidden? ? 'hide-sidebar' : '' %>">
-  <div id="logo"></div>
+  <%= link_to_function "<div id='logo'></div>", "new InPlaceAjaxEditor(null, '/user/edit/').show();" %>
   <%= render_custom :partial => "layouts/top" %>
 	
 	<% if @user %>
@@ -46,15 +46,6 @@
     <% end -%>
     <%= @content_for_layout %>
   </div>
-		
-  <div id="footer">
-		<% if @user %>
-      <a href="javascript: { new InPlaceAjaxEditor(null, '/user/edit/').show() }">Postavke</a> |
-		<% end %>
-    <a href="http://trac.igoranic.com/racuni">O aplikaciji</a> |
-    <a href="http://trac.igoranic.com/racuni/wiki/FAQ">FAQ</a> |
-    <a href="mailto:pomoc@igoranic.com?subject=Moji Računi Pomoć"><%= image_tag 'email' %> Pomoć</a>
-  </div>
-	
+			
 </body>
 </html>
