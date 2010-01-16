@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
       end
     end
     
-    @godina = (params[:godina] || Date.today.year - 1).to_i
+    @godina = (params[:godina] || Date.today.year).to_i
     @partner_id = params[:partner_id].to_i       
     @placanje = params[:placanje].to_i 
     @mjesec = params[:mjesec] || ""

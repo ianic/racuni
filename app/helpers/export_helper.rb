@@ -14,7 +14,7 @@ module ExportHelper
   def export_table(titles, data) 
     export_header  
     render(:partial => "export/table", 
-      :locals => {'sheet_name' => @title, 'titles' => titles, 'data' => data})
+      :locals => {:sheet_name => @title, :titles => titles, :data => data})
   end
   
   def csv?

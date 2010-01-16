@@ -58,11 +58,6 @@ class AnalizeController < ApplicationController
       limit 100
                 "
     )
-
-    # @partneri = Partner.paginate(     
-    #   :page => params[:page],  
-    #   :per_page => @per_page
-    # )
   end
 
 end
