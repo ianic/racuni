@@ -38,29 +38,31 @@ class AnalizeController < ApplicationController
 
   def get_partneri(order, conditions = nil)
     racun_conditions = racun_filter_params
-    racun_conditions = racun_conditions ? "where #{racun_conditions}"  : ""
+    racun_conditions = racun_conditions ? "where #{racun_conditions}"  : "" 
+    
+    @partneri = Partner.find_by_sql("select * from partner
+                inner join
+      (
+              select partner_id,
+                sum(iznos) iznos,
+                sum(placeno) placeno,
+                sum(iznos - placeno) dug,
+                count(*) broj_racuna,
+                count(*) - sum(placen) broj_neplacenih_racuna
+              from racun r
+              #{racun_conditions}
+              group by partner_id
+      ) r on r.partner_id = id                            
+      where #{conditions}
+      order by #{order} 
+      limit 100
+                "
+    )
 
-    @partneri_pages, @partneri = paginate(
-                :partner,
-                :class_name => "Partner",
-                :joins => "
-                  inner join
-        (
-                select partner_id,
-                  sum(iznos) iznos,
-                  sum(placeno) placeno,
-                  sum(iznos - placeno) dug,
-                  count(*) broj_racuna,
-                  count(*) - sum(placen) broj_neplacenih_racuna
-                from racun r
-                #{racun_conditions}
-                group by partner_id
-        ) r on r.partner_id = id
-                  ",
-                :order => order,
-                :conditions => conditions,
-                :per_page => @per_page
-                )
+    # @partneri = Partner.paginate(     
+    #   :page => params[:page],  
+    #   :per_page => @per_page
+    # )
   end
 
 end

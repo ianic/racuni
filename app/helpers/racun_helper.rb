@@ -5,7 +5,7 @@ module RacunHelper
   end
 
   def racun_broj(racun)
-    render :partial => "racun/table_col_broj"
+    render :partial => "racun/table_col_broj", :locals => { :racun => racun }
   end
 
   def div_iznos(value)

@@ -11,7 +11,7 @@
       .cleaner
     = submit_tag('PRIKAŽI', :class => "button")
   
-= render_paginator(@stavke_pages, @params)
+= render_paginator(@stavke, @params)
 
 %table.fin.sortable#racuni
   %thead

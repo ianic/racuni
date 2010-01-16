@@ -5,13 +5,13 @@ module RacunEditPlacanje
     @racun.placanja(true) if !saved
     @racun_placanje = nil if saved
     nova_uplata if saved
-    render :partial => "racun_placanje/update", :locals => {'update_racun_row' => saved, 'close_editor' => saved}
+    render :partial => "racun_placanje/update", :locals => {:update_racun_row => saved, :close_editor => saved}
   end
   
   def delete_placanje
     @racun.placanja.delete(@racun.placanja.find(params[:placanje_id]))
     nova_uplata
-    render :partial => "racun_placanje/update", :locals => {'update_racun_row' => true, 'close_editor' => false}
+    render :partial => "racun_placanje/update", :locals => {:update_racun_row => true, :close_editor => false}
   end
   
   def edit_placanje

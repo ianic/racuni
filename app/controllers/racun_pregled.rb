@@ -1,13 +1,14 @@
+require 'will_paginate'
+require 'haml'
 module RacunPregled
 
   def pregled
     conditions = racun_filter_params
     @title = @title || racuni_naziv(@model_class)   
-  	@racuni_pages, @racuni = paginate( 
-  		:racuni, 
-  		:class_name => @model_class.to_s,    
+  	@racuni = @model_class.paginate(   		
   		:order => 'datum desc, broj desc', 
-  		:conditions => conditions,
+  		:conditions => conditions,     
+  		:page => params[:page],
   		:per_page => csv? ? 2147483647 : @per_page
   		)
   	@sume = Racun.connection.select_one("select sum(osnovica) osnovica, 
@@ -40,9 +41,8 @@ module RacunPregled
       from racun_stavka 
       where #{conditions}")
     
-    @stavke_pages, @stavke = paginate( 
-  		:stavke,  
-  		:class_name => "RacunStavka",    
+    @stavke = RacunStavka.paginate(   	
+      :page => params[:page],
   		:order => 'racun_id desc', 
   		:conditions => conditions,
   		:per_page => csv? ? 2147483647 : @per_page,

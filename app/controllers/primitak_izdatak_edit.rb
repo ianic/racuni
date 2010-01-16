@@ -8,7 +8,7 @@ module PrimitakIzdatakEdit
   def update
     if save
       render :layout => "nil", :update => true do |page|
-				page.replace "izdatak_#{@izdatak.id}", :partial => 'izdatak/row_view', :locals => {'izdatak' => @izdatak, 'izdatak_counter' => 0}
+				page.replace "izdatak_#{@izdatak.id}", :partial => 'izdatak/row_view', :locals => {:izdatak => @izdatak, :izdatak_counter => 0}
 				page.visual_effect :highlight, "izdatak_#{@izdatak.id}"
 				page << "editor_window.destroy();"
 			end
@@ -40,9 +40,8 @@ module PrimitakIzdatakEdit
     c.like "opis", @opis
     c.where
     
-  	@izdaci_pages, @izdaci = paginate( 
-  		:izdaci, 
-  		:class_name => @model_class.to_s,  
+  	@izdaci = Izdatak.paginate( 
+  		:page => params[:page],  	
   		:conditions => c.where,
   		:order => 'datum desc, broj desc', 
   		:per_page => @per_page)

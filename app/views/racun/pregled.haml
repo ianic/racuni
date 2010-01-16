@@ -1,4 +1,7 @@
-= render :partial => "racun/filter"
-= render_paginator(@racuni_pages, @params)
+= render :partial => "racun/filter"         
+.Paginator{:id => "paginator"} 
+  = will_paginate @racuni, :params => @params, :prev_label => "&laquo;", :next_label => "&raquo;"
+  = link_to_function("FILTER", "Element.toggle('filter'); if (Element.visible('filter')) Form.focusFirstElement('filter_form');")
+  = link_to("EXPORT", params.merge({"format" => "csv"}))
 = render :partial => "racun/table" 
 = render :partial => "racun/popup_js", :locals => { :links => popup_links_izlazni() }

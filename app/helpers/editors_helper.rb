@@ -62,7 +62,7 @@ module EditorsHelper
 
   def render_paginator(pages, params = nil, filter_link = true, export_link = true)
     render :partial=>"common/paginator",
-      :locals => {"pages" => pages, "params" => params, "filter_link" => filter_link, "export_link" => export_link}
+      :locals => {:pages => pages, :params => params, :filter_link => filter_link, :export_link => export_link}
   end
 
   def element(title, content)
@@ -79,7 +79,7 @@ module EditorsHelper
     output = ""
     idx = 0
     collection.each do |object|
-      output << render(:partial => partial, :locals => { object_name => object, "#{object_name}_counter" => idx })
+      output << render(:partial => partial, :locals => { object_name.to_sym => object, "#{object_name}_counter".to_sym => idx })
       idx += 1
     end
     output

@@ -4,10 +4,10 @@
 %script
   new Ajax.Autocompleter('stavka', 'stavka_auto_complete', '/user/stavka_auto_complete', 
   {
-   afterUpdateElement: function(element, selectedElement) 
-   { 
-     $('stavka_id').value = $F(selectedElement.childNodes[3]);
-   },
-   minChars: 1,
-   paramName: "opis"
+  afterUpdateElement: function(element, selectedElement) 
+  { 
+  $('stavka_id').value = $F(selectedElement.childNodes[3]);
+  },
+  minChars: 1,
+  paramName: "opis"
   });

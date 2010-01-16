@@ -23,13 +23,13 @@
 </head>
 <body id="body" class="<%= sidebar_hidden? ? 'hide-sidebar' : '' %>">
   <%= link_to_function "<div id='logo'></div>", "new InPlaceAjaxEditor(null, '/user/edit/').show();" %>
-  <%= render_custom :partial => "layouts/top" %>
+  <%= render :partial => "layouts/top" %>
 	
 	<% if @user %>
    <div id="left" >
     <table cellpadding="0" cellspacing="0" id="left-drawer">
       <tr>
-        <td class="drawer-content"><div id="menu_content"><%= render_custom :partial => 'user/menu' %></div></td>
+        <td class="drawer-content"><div id="menu_content"><%= render :partial => 'user/menu' %></div></td>
         <td class="drawer-handle" onclick="toggleSidebar(); return false;">
           <div class="top-corner"></div>
           <div class="bottom-corner"></div>

@@ -18,17 +18,17 @@
       %th pdv
   %tbody
     - @racuni_iznosi.keys.sort.each do |key|
-    %tr
-      %th= key
-      %th= m @racuni_iznosi[key][:iznos]
-      %th= m @racuni_iznosi[key][:pdv]	    
-    - end
+      %tr
+        %th= key
+        %th= m @racuni_iznosi[key][:iznos]
+        %th= m @racuni_iznosi[key][:pdv]	    
+    
     - @ulazni_racuni_iznosi.keys.sort.each do |key|
-    %tr
-      %th= key
-      %th= m @ulazni_racuni_iznosi[key][:iznos]
-      %th= m @ulazni_racuni_iznosi[key][:pdv]	    
-    - end
+      %tr
+        %th= key
+        %th= m @ulazni_racuni_iznosi[key][:iznos]
+        %th= m @ulazni_racuni_iznosi[key][:pdv]	    
+
     %tr
       %th IV. (II. - III.)
       %th
