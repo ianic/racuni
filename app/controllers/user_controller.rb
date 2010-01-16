@@ -25,7 +25,7 @@ class UserController < ApplicationController
 
   def sidebar
     session['sidebar_hidden'] = params['hidden'] == '1'
-    render_nothing
+    render :text => ""
   end
 
   def login		
