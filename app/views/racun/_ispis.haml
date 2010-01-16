@@ -4,19 +4,8 @@
     .right
       = render_partner_view(@racun)
     .partner_view
-      .naziv= @user.naziv
-      %div= @user.mjesto
-      %div= 'ured: ' + @user.adresa
-      %div
-        %span.note porezni broj, JMBG:
-        = @user.porezni_broj
-      %div
-        %span.note matični broj obrta:
-        = @user.mbo
-      %div
-        %span.note žiro račun:
-        = @user.ziro_racun
-
+      = @user.racun_header
+      
   .dokument_naziv
     = "RAČUN - OTPREMNICA R-2 br. #{@racun.broj_dokumenta}" if @racun.racun?
     = "GOTOVINSKI RAČUN - OTPREMNICA R-2 br. #{@racun.broj_dokumenta}" if @racun.gotovinski?
@@ -81,12 +70,7 @@
     .clear
   .potpis
   .footer
-    = "tel: #{@user.tel}," if @user.tel
-    = "fax: #{@user.fax}," if @user.fax
-    = "gsm: #{@user.gsm}," if @user.gsm
-    = "e-mail:#{@user.email}" if @user.email
-    = "web:#{@user.www}" if @user.www
-
+    = @user.racun_footer
 
 
 

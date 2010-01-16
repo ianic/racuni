@@ -4,6 +4,11 @@
   <div class="naziv"><%=h partner.naziv %></div>
   <div><%=h partner.adresa %></div>
   <div><%=h partner.mjesto %></div>
+  <% unless partner.porezni_broj.nil? || partner.porezni_broj.empty? %>
   <div><span class="note">porezni broj:</span> <%=h partner.porezni_broj %></div>
+  <% end %>
+  <% unless partner.oib.nil? || partner.oib.empty? %>
+    <div><span class="note">OIB:</span> <%=h partner.oib %></div>
+  <% end %>
 <% end -%>
 </div>
