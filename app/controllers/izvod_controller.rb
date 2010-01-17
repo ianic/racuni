@@ -18,7 +18,7 @@ class IzvodController < ApplicationController
   end
   
   def uplate_isplate
-    @datum = params[:datum].to_date
+    @datum = parse_date
     uplate_isplate_na_dan
     render :update do |page|
       page.replace_html "uplate_isplate", :partial => 'uplate_isplate'
@@ -26,7 +26,15 @@ class IzvodController < ApplicationController
     end   
   end
   
-  private
+  private                          
+  
+  def parse_date       
+    #zato sto params[:datum].to_date nije prolazio na Ruby 1.8.6 greska: can't modify frozen string
+    parts = params[:datum].split("-")
+    Date.new(parts[0].to_i, parts[1].to_i, parts[2].to_i)
+  rescue 
+    nil
+  end
   
   def uplate_isplate_na_dan
     c = {"datum" => @datum, "tip_uplate" => 0}
