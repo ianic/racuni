@@ -4,7 +4,7 @@ class UserController < ApplicationController
   end
 	
 	def home
-		redirect_to :action=>'index' if session["user_id"] || User.count == 1
+		redirect_to :action=>'index' if session["user_id"] 
 	end
 
   def edit

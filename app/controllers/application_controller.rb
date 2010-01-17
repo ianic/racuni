@@ -19,13 +19,7 @@ class ApplicationController < ActionController::Base
     if session["user_id"]
       @user = User.find(session["user_id"])
     else
-  	  if User.count == 1  	    
-        @user = User.find(:first)
-        session["user_id"] = @user.id
-      else
-        redirect_to(:controller=>'user', :action => 'login')  
-        return
-      end
+      redirect_to(:controller=>'user', :action => 'login')  
     end
     
     @godina = (params[:godina] || Date.today.year).to_i
