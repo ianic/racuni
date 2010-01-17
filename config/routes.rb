@@ -40,7 +40,7 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   
   
-  map.connect '', :controller => "user", :action=>'home'
+  map.connect '', :controller => "user", :action=>'login'
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
   map.connect ':uuid', :controller => 'user', :action => 'permanent_link'
