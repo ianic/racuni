@@ -40,7 +40,7 @@ module PrimitakIzdatakEdit
     c.like "opis", @opis
     c.where
     
-  	@izdaci = Izdatak.paginate( 
+  	@izdaci = @model_class.paginate( 
   		:page => params[:page],  	
   		:conditions => c.where,
   		:order => 'datum desc, broj desc', 
