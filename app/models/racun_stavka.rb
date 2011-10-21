@@ -1,4 +1,4 @@
-require 'facets/core/float/round_at'
+#require 'facets/core/float/round_at'
 
 class RacunStavka < ActiveRecord::Base
   belongs_to :racun, :polymorphic => true

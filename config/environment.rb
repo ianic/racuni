@@ -17,7 +17,6 @@ Rails::Initializer.run do |config|
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem "mysql"
   config.gem "haml"
-  config.gem "facets"  
   config.gem "uuidtools"
   config.gem "will_paginate"
   # config.gem "bj"
@@ -54,4 +53,6 @@ ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(
   :default => "%d.%m.%y",
   :date_time12 => "%m/%d/%Y %I:%M%p",
   :date_time24 => "%m/%d/%Y %H:%M"
-)
+)                   
+
+ActiveRecord::Base.include_root_in_json = false

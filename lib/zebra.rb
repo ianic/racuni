@@ -1,6 +1,6 @@
 require 'dbi/dbi'
 require 'iconv'
-require 'facets/core/float/round_at'
+#require 'facets/core/float/round_at'
 
 def add(fp, val)
   (val = escape(val)) if val.class == String

@@ -10,14 +10,14 @@ div.auto_complete {
     max-height: 300px;
     overflow: hidden;    
     overflow-y: auto;
-}
-
-ul.auto_complete  {
+}                
+                 
+ul.auto_complete, div.auto_complete ul  {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
     text-transform: none;
 }
 
-ul.auto_complete li.selected { background-color: #ffb; }
-ul.auto_complete li { border-bottom: 1px dotted #bababa;  padding: 5px; }
+ul.auto_complete li.selected, div.auto_complete li.selected{ background-color: #ffb; }
+ul.auto_complete li, div.auto_complete li { border-bottom: 1px dotted #bababa;  padding: 5px; }

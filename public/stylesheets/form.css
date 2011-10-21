@@ -107,4 +107,9 @@ h5 { font-size: 11px; }
 }
 #stavke {
   width: 400px;
+}                                                
+
+
+input:focus, textarea.textarea:focus, select:focus {
+	background-color:#FEFEEE;
 }

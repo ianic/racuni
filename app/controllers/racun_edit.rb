@@ -11,6 +11,10 @@ module RacunEdit
 
   def view    
     render :template => "racun/view", :layout => "racun_ispis"
+  end   
+  
+  def ispis
+    render :template => "racun/ispis", :layout => "ispis"
   end
 
   def nova_stavka
