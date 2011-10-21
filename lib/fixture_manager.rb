@@ -1,4 +1,4 @@
-#require 'facets/core/float/round_at'
+require 'facets/core/float/round_at'
 
 class FixtureManager
 

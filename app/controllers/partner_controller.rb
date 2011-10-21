@@ -1,11 +1,7 @@
 class PartnerController < ApplicationController
   #auto_complete_for :partner, :naziv
   
-#address bok display    
-  def test                                            
-    @partneri = @user.partneri.find(:all)
-  end
-
+#address bok display
   def book
 		@title = "Adresar"
     @slova = (@user.partneri.find(:all).collect{|p| p.slovo if (p.naziv && p.slovo != "") }).compact.uniq.sort

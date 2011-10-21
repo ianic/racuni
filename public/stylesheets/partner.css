@@ -40,9 +40,9 @@ background:#B5CBE7 none repeat scroll 0% 50%;
 border-color:#DDDDDD;
 }
 
-a:focus,  a:active {
-	outline: none; /* @ Firefox 1.5, remove ugly dotted border */
-} 
+ a:focus,  a:active {
+    outline: none; /* @ Firefox 1.5, remove ugly dotted border */
+}
 
 /*card_view--------------------------------------*/
 
@@ -71,7 +71,7 @@ a:focus,  a:active {
 	background-color: #f6f6f6;
 	padding: 4px;
 }
-.partner_edit input { width: 270px;}
+.partner_edit input { width: 280px;}
 .partner_view
 {
 	border: 1px dotted #bababa;
