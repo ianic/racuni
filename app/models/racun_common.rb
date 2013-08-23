@@ -1,7 +1,14 @@
+# -*- coding: utf-8 -*-
 require 'facets/core/float/round_at'
 
 module RacunCommon
   include Dokument
+
+  extend ActiveSupport::Concern
+
+  included do
+    before_save :before_save
+  end
 
   def edit(attributes, stavke_attributes)
     self.update_attributes(attributes)
@@ -78,7 +85,7 @@ module RacunCommon
       self.placen = self.placeno >= self.iznos ? 1 : 0
     end
   end
-  
+
   def after_save
     return if !self.respond_to?('tip_placanja')
     if (self.respond_to?('tip_placanja') && self.tip_placanja == 1)
@@ -112,20 +119,20 @@ module RacunCommon
   def racun?
     return self.class == Racun && !self.gotovinski?
   end
-  
+
   def izlazni?
     return self.class == Racun
   end
 
   def ponuda?
     return self.class == Ponuda
-  end  
-  
-  def ima_sifru?                             
+  end
+
+  def ima_sifru?
     ima = false
-    stavke.each do |stavka| 
-       ima = true if stavka.ima_sifru? 
-    end           
+    stavke.each do |stavka|
+       ima = true if stavka.ima_sifru?
+    end
     ima
   end
 

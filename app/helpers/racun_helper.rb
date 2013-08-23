@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 module RacunHelper
 
   def partner_naziv(racun)
@@ -30,7 +31,7 @@ module RacunHelper
 
   def render_div_iznos(value, css_class, tooltip)
     return "" if value.to_f < 0.01 and value.to_f > -0.01
-    "<div class='#{css_class}' title='#{tooltip}'>#{m(value)}</div>"
+    "<div class='#{css_class}' title='#{tooltip}'>#{m(value)}</div>".html_safe
   end
 
   #funkcija ShowRacunPopup iz racun/_popup_js.rhtml će zamjeniti
@@ -41,7 +42,7 @@ module RacunHelper
     links = Array.new
     links << link_to("Izmjeni", :action => "edit", :id => 1234)
     links << link_to("Ispiši", :action => "view", :id => 1234)
-    links << "<a href='/9999'>Vanjski link</a>"
+    links << "<a href='/9999'>Vanjski link</a>".html_safe
     links << nil
     links << link_to("Svi računi kupca", :action => "pregled", :partner_id => 5678)
     links << link_to("Neplaćeni računi kupca", :action => "pregled", :partner_id => 5678, :godina => '...', :placanje => 2)
@@ -70,7 +71,7 @@ module RacunHelper
     links = Array.new
     links << link_to("Izmjeni", :action => "edit", :id => 1234)
     links << link_to("Ispiši", :action => "view", :id => 1234)
-    links << "<a href='/9999'>Vanjski link</a>"
+    links << "<a href='/9999'>Vanjski link</a>".html_safe
     links << nil
     links << link_to("Sve ponude kupca", :action => "pregled", :partner_id => 5678)
     links << link_to("Svi računi kupca", :controller => "racun", :action => "pregled", :partner_id => 5678)

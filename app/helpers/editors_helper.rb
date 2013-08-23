@@ -1,15 +1,15 @@
 module EditorsHelper
-  
+
   def indicator(id)
     image_tag 'indicator.gif', :id => id, :style => 'display:none'
   end
 
   def notice
-    "<div id='notice'>#{flash[:notice]}</div>" if flash[:notice]
+    "<div id='notice'>#{flash[:notice]}</div>".html_safe if flash[:notice]
   end
 
   def notice2
-    "<div id='notice'>#{@notice}</div>" if @notice
+    "<div id='notice'>#{@notice}</div>".html_safe if @notice
   end
 
   def select_godina(selected, sve_godine = true)
@@ -39,7 +39,7 @@ module EditorsHelper
   end
 
   def render_select(name, collection, selected)
-    "<select name='#{name}'>#{options_for_select(collection, selected)}</select>"
+    "<select name='#{name}'>#{options_for_select(collection, selected)}</select>".html_safe
   end
 
   def even_odd(counter)
@@ -48,16 +48,16 @@ module EditorsHelper
 
   def form_start(title, highLight = false)
     hx = highLight ? "h3" : "h5"
-    "<#{hx}>#{title}</#{hx}><table class='subForm' cellpadding='0' cellspacing='0'><tbody><tr><td>"
+    "<#{hx}>#{title}</#{hx}><table class='subForm' cellpadding='0' cellspacing='0'><tbody><tr><td>".html_safe
   end
   def form_end
-    "</td></tr></tbody></table>"
+    "</td></tr></tbody></table>".html_safe
   end
   def form_row_separator
-    "</td></tr><tr><td>"
+    "</td></tr><tr><td>".html_safe
   end
   def form_element(title, content, with_separator = true)
-    "<div class='formElement'><h6>#{title}</h6>#{content}</div>#{form_row_separator if with_separator}"
+    "<div class='formElement'><h6>#{title}</h6>#{content}</div>#{form_row_separator if with_separator}".html_safe
   end
 
   def render_paginator(pages, params = nil, filter_link = true, export_link = true)
@@ -82,11 +82,11 @@ module EditorsHelper
       output << render(:partial => partial, :locals => { object_name.to_sym => object, "#{object_name}_counter".to_sym => idx })
       idx += 1
     end
-    output
+    output.html_safe
   end
 
   def image_link(image, function, title = "")
     link_to_function image_tag(image, :title => title), function, :class => "img_link"
   end
-  
+
 end

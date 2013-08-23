@@ -23,7 +23,7 @@
   <%= stylesheet_link_tag 'themes/alphacube' %>
 </head>
 <body id="body" class="<%= sidebar_hidden? ? 'hide-sidebar' : '' %>">
-  <%= link_to_function "<div id='logo'></div>", "new InPlaceAjaxEditor(null, '/user/edit/').show();" %>
+  <%= link_to_function "<div id='logo'></div>".html_safe, "new InPlaceAjaxEditor(null, '/user/edit/').show();" %>
   <%= render :partial => "layouts/top" %>
 
 	<% if @user %>

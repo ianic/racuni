@@ -1,4 +1,4 @@
-require 'uuidtools' 
+require 'uuidtools'
 
 module Dokument
 
@@ -26,7 +26,7 @@ module Dokument
     self.godina = self.datum.year
     self.broj = slijedeci_broj
   end
-  
+
   def set_uuid
     if self.respond_to?('uuid')
       self.uuid =  UUID.random_create.to_s
@@ -44,11 +44,11 @@ module Dokument
     godina = godina + 2000 if godina < 100
     return [a[0].to_i, godina]
   end
-  
+
   def zamjeni_partnera(novi)
     logger.info("zamjena partnera #{self.partner_id} partnerom #{novi.id} na dokumentu #{self.class} id #{self.id}")
-    logger.info("\trollback:\t update #{self.class.table_name} set partner_id = #{self.partner_id} where id = #{self.id}")    
-    update_attribute('partner_id', novi.id)    
+    logger.info("\trollback:\t update #{self.class.table_name} set partner_id = #{self.partner_id} where id = #{self.id}")
+    update_attribute('partner_id', novi.id)
   end
 
 end
