@@ -2,8 +2,9 @@
 # This preamble is the current preamble for Rails 3 apps; edit as needed.
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.20'
+gem 'rails', '3.1.12'
 #gem 'rdoc'
+gem 'prototype-rails'
 
 gem 'mysql'
 gem 'haml'
