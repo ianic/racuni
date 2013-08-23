@@ -11,4 +11,6 @@ production:
   database: racuni
   username: root
   password: Dsalkjm!
-  encoding: UTF8
+  encoding: utf8 
+  reconnect: true 
+  
