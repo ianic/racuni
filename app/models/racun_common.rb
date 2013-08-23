@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
-require 'facets/core/float/round_at'
+# encoding: utf-8
 
+# -*- coding: utf-8 -*-
 module RacunCommon
   include Dokument
 

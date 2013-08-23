@@ -38,7 +38,6 @@ GEM
     arel (2.2.3)
     builder (3.0.4)
     erubis (2.7.0)
-    facets (1.7.46)
     haml (4.0.3)
       tilt
     hike (1.2.3)
@@ -98,7 +97,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  facets (= 1.7.46)
   haml
   mysql
   prototype-rails
