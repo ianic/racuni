@@ -1,1 +1,5 @@
-#dani.row.dani= @dani.map{ |datum| link_to_dan(datum) + ' ' } if @dani
+#dani.row.dani
+  - if @dani
+    - @dani.each do |datum|
+      = link_to_dan(datum)
+      &nbsp;

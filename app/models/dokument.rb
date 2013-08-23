@@ -29,7 +29,7 @@ module Dokument
 
   def set_uuid
     if self.respond_to?('uuid')
-      self.uuid =  UUID.random_create.to_s
+      self.uuid =  UUIDTools::UUID.random_create.to_s
     end
   end
 

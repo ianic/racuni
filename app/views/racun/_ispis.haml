@@ -4,8 +4,8 @@
     .right
       = render_partner_view(@racun)
     .partner_view
-      = @user.racun_header
-      
+      = @user.racun_header.html_safe
+
   .dokument_naziv
     = "RAČUN - OTPREMNICA R-2 br. #{@racun.broj_dokumenta}" if @racun.racun?
     = "GOTOVINSKI RAČUN - OTPREMNICA R-2 br. #{@racun.broj_dokumenta}" if @racun.gotovinski?
@@ -30,18 +30,18 @@
   .clear
 
   .head_stavka
-    - if @racun.ima_sifru?                   
-      .head_stavka_sifra Šifra 
-      .head_stavka_opis Naziv    
-    - unless @racun.ima_sifru?              
-      .head_stavka_opis_sifra Naziv    
+    - if @racun.ima_sifru?
+      .head_stavka_sifra Šifra
+      .head_stavka_opis Naziv
+    - unless @racun.ima_sifru?
+      .head_stavka_opis_sifra Naziv
     .head_stavka_jedinica_mjere Jedinica Mjere
     .head_stavka_kolicina Količina
     .head_stavka_cijena Cijena
     .head_stavka_iznos Iznos
     .clear
     - @racun.stavke.each do |stavka|
-      - if @racun.ima_sifru?  
+      - if @racun.ima_sifru?
         .sifra= stavka.sifra || "&nbsp;"
         .opis= h stavka.opis_bez_sifre
       - unless @racun.ima_sifru?
@@ -71,8 +71,3 @@
   .potpis
   .footer
     = @user.racun_footer
-
-
-
-
-

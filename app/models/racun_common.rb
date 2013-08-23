@@ -8,6 +8,7 @@ module RacunCommon
 
   included do
     before_save :before_save
+    after_initialize :after_initialize
   end
 
   def edit(attributes, stavke_attributes)
