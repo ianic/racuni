@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 #filter{:style => 'display:none'}
   %form{:id => 'filter_form'}
     %h5 filter
@@ -8,7 +10,6 @@
       = row_element "redaka po stranici", select_per_page(@per_page)
       .cleaner
     = submit_tag('PRIKAŽI', :class => "button")
-
 = render_paginator(@partneri_pages, @params, true, false)
 
 %table.fin.sortable

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class UserKolone < ActiveRecord::Migration
 
   def self.up

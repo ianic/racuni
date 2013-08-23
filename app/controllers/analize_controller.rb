@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AnalizeController < ApplicationController
 
   def najbolji_kupci

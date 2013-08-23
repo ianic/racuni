@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module RacunPlacanjeHelper
 
   def link_to_delete_placajne(placanje_id, racun_id)

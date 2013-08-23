@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class KnjigaController < ApplicationController
 
   def read_params

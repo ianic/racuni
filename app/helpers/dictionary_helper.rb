@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module DictionaryHelper
 
   def naziv_dokumenta(c)

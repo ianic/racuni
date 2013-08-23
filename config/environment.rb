@@ -14,3 +14,6 @@ Time::DATE_FORMATS.merge!(
                           :date_time12 => "%m/%d/%Y %I:%M%p",
                           :date_time24 => "%m/%d/%Y %H:%M"
                           )
+
+Encoding.default_external = Encoding::UTF_8
+Encoding.default_internal = Encoding::UTF_8

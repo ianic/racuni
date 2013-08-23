@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Racun < ActiveRecord::Base
   include RacunCommon
 

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class UserRacunHeaderFooter < ActiveRecord::Migration
   def self.up
     add_column :user, :racun_header, :text

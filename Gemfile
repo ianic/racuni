@@ -6,7 +6,7 @@ gem 'rails', '3.1.12'
 #gem 'rdoc'
 gem 'prototype-rails'
 
-gem 'mysql'
+gem 'mysql2'
 gem 'haml'
 gem 'uuidtools'
 gem 'will_paginate'

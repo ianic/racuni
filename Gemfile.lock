@@ -49,7 +49,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.24)
     multi_json (1.7.9)
-    mysql (2.9.1)
+    mysql2 (0.3.13)
     polyglot (0.3.3)
     prototype-rails (3.1.0)
       rails (~> 3.1)
@@ -98,7 +98,7 @@ PLATFORMS
 
 DEPENDENCIES
   haml
-  mysql
+  mysql2
   prototype-rails
   prototype_legacy_helper (= 0.0.0)!
   rails (= 3.1.12)

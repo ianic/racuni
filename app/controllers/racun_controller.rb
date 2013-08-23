@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class RacunController < ApplicationController
   include RacunEdit
   include RacunPregled

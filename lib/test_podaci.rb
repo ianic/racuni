@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class TestPodaci
 
   def initialize(user_id)
