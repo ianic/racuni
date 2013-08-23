@@ -3,6 +3,7 @@
 <head>
   <title>Moji Računi</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <%= csrf_meta_tag %>
   <%= stylesheet_link_tag 'application' %>
   <%= stylesheet_link_tag 'errors' %>
   <%= stylesheet_link_tag 'menu' %>
@@ -14,7 +15,7 @@
     <% if flash[:notice] -%>
       <div id="notice"><%= flash[:notice] %></div>
     <% end -%>
-    <%= @content_for_layout %>
+    <%= yield %>
   </div>
 </body>
 </html>

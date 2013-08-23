@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/rails/prototype_legacy_helper.git
+  revision: a2cd95c3e3c1a4f7a9566efdab5ce59c886cb05f
+  specs:
+    prototype_legacy_helper (0.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -32,7 +38,7 @@ GEM
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    facets (2.9.3)
+    facets (1.7.46)
     haml (4.0.3)
       tilt
     i18n (0.5.0)
@@ -63,6 +69,7 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (10.1.0)
+    rdoc (2.4.3)
     thor (0.14.6)
     tilt (1.4.1)
     treetop (1.4.15)
@@ -76,9 +83,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  facets
+  facets (= 1.7.46)
   haml
   mysql
+  prototype_legacy_helper (= 0.0.0)!
   rails (= 3.0.6)
+  rdoc
   uuidtools
   will_paginate
