@@ -34,7 +34,7 @@
         <%= link_to_function "<div id='logo'></div>".html_safe, "new InPlaceAjaxEditor(null, '/user/edit/').show();" %>
         <%= render :partial => "layouts/top" %>
 
-	<% if @user %>
+	      <% if @user %>
             <div id="left" >
                 <table cellpadding="0" cellspacing="0" id="left-drawer">
                     <tr>
@@ -47,7 +47,7 @@
                     </tr>
                 </table>
             </div>
-	<% end %>
+	      <% end %>
 
         <div id="middle">
             <% if flash[:notice] -%>
