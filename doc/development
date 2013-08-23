@@ -1,0 +1,8 @@
+pokretanje mariadb na mom storju:
+cd '/usr/local' ; /usr/local/bin/mysqld_safe --datadir='/usr/local/var/mysql'
+
+konfiguracija mariadb se nalazi u:
+  /etc/mysql/my.cnf
+
+restore mysql baze:
+mysql -u root nektar < racuni_082213.bkp
