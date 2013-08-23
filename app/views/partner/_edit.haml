@@ -1,17 +1,17 @@
 = error_messages_for 'partner'
 
-- form_remote_tag(:url=>{:action => (@partner.new_record? ? 'create' : 'update'), :id => @partner}, :update =>"edit") do
-  %h3=@title	  
+= form_remote_tag(:url=>{:action => (@partner.new_record? ? 'create' : 'update'), :id => @partner}, :update =>"edit") do
+  %h3=@title
   .sub_form
-    = row_element "Naziv",        text_area ('partner', 'naziv',        :class => "t")
-    = row_element "Adresa",       text_field('partner', 'adresa',       :class => "t")  
-    = row_element "Mjesto",       text_field('partner', 'mjesto',       :class => "t")  
-    = row_element "Tel",          text_field('partner', 'tel',          :class => "t") 
-    = row_element "Fax",          text_field('partner', 'fax',          :class => "t")  
-    = row_element "Porezni broj", text_field('partner', 'porezni_broj', :class => "t") 
-    = row_element "OIB",          text_field('partner', 'oib',          :class => "t") 
-    = row_element "žiro račun",   text_field('partner', 'ziro_racun',   :class => "t") 
-    = row_element "Kontakt",      text_field('partner', 'kontakt',      :class => "t")  
+    = row_element "Naziv",        text_area( 'partner', 'naziv',        :class => "t")
+    = row_element "Adresa",       text_field('partner', 'adresa',       :class => "t")
+    = row_element "Mjesto",       text_field('partner', 'mjesto',       :class => "t")
+    = row_element "Tel",          text_field('partner', 'tel',          :class => "t")
+    = row_element "Fax",          text_field('partner', 'fax',          :class => "t")
+    = row_element "Porezni broj", text_field('partner', 'porezni_broj', :class => "t")
+    = row_element "OIB",          text_field('partner', 'oib',          :class => "t")
+    = row_element "žiro račun",   text_field('partner', 'ziro_racun',   :class => "t")
+    = row_element "Kontakt",      text_field('partner', 'kontakt',      :class => "t")
     = row_element "E-mail",       text_field('partner', 'email',        :class => "t")
-    .cleaner    
+    .cleaner
   = submit_tag 'UPIŠI', :class => "button"

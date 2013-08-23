@@ -1,10 +1,10 @@
 %h3=@title
 = error_messages_for 'user'
 
-- form_remote_tag(:url=>{:action => 'update'}, :update =>"edit") do
-  .sub_form                                                                               
+= form_remote_tag(:url=>{:action => 'update'}, :update =>"edit") do
+  .sub_form
     = row_element "Račun header",      text_area ('user', 'racun_header', :class => "header")
-    = row_element "Račun footer",      text_area ('user', 'racun_footer', :class => "footer")  
-    .cleaner 
-        
+    = row_element "Račun footer",      text_area ('user', 'racun_footer', :class => "footer")
+    .cleaner
+
   = submit_tag 'UPIŠI', :class => "button"
