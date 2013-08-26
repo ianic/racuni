@@ -3,9 +3,10 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.14'
-#gem 'rdoc'
+
 gem 'prototype-rails'
 gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'
+gem "dynamic_form", "~> 1.1.4"
 
 gem 'mysql2'
 gem 'haml'
