@@ -10,14 +10,14 @@ class KnjigaController < ApplicationController
     @title = "Knjiga Izlaznih Računa #{@godina} godina"
   	@racuni = placanja
   	@sume = sumiraj(@racuni, ['iznos', 'bez_poreza', 'pdv'])
-  	(export_excel_xml("knjiga/kira_export") and return) if csv?
+  	(export_excel_xml("knjiga/kira_export.html.erb") and return) if csv?
   end
   
   def kura
     @title = "Knjiga Ulaznih Računa #{@godina} godina"    
     @placanja = ulazni_placanja
   	@sume = sumiraj(@placanja, ['bez_poreza', 'iznos', 'porezna_osnovica', 'pdv', 'pdv_moze_se_odbiti', 'pdv_nemoze_se_odbiti'])
-  	(export_excel_xml("knjiga/kura_export") and return) if csv?
+  	(export_excel_xml("knjiga/kura_export.html.erb") and return) if csv?
   end
   
   def placanja
@@ -40,7 +40,7 @@ class KnjigaController < ApplicationController
     
     @kpi = @kpi.compact.sort{|a,b| a.datum <=> b.datum}
     
-    (export_excel_xml("knjiga/kpi_export") and return) if csv?
+    (export_excel_xml("knjiga/kpi_export.html.erb") and return) if csv?
   end
   
   def pdv

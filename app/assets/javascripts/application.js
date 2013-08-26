@@ -1,0 +1,11 @@
+//= require prototype
+//= require prototype_ujs
+//= require effects
+//= require dragdrop
+//= require controls
+//= require misc
+//= require partner
+//= require racun_edit
+//= require currency
+//= require sorttable
+//= require window

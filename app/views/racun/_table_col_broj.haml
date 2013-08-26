@@ -2,5 +2,5 @@
   .left
     = link_to(racun.broj_opis, :action=>"edit", :id => racun.id)
   .right
-    = image_tag('down.gif', :alt => 'Kliknite za Izbornik', :onclick => "javascript:ShowRacunPopup(#{racun.id}, #{racun.partner_id}, #{racun.broj}, '#{racun.uuid if racun.respond_to?('uuid')}', event);",  :class => "noprint", :onmouseover => 'this.src="/images/up.gif"', :onmouseout => 'this.src="/images/down.gif"') 
+    = image_tag('down.gif', :alt => 'Kliknite za Izbornik', :onclick => "javascript:ShowRacunPopup(#{racun.id}, #{racun.partner_id}, #{racun.broj}, '#{racun.uuid if racun.respond_to?('uuid')}', event);",  :class => "noprint", :onmouseover => 'this.src="/assets/up.gif"', :onmouseout => 'this.src="/assets/down.gif"')
     .popup_div{:style => "display:none", :id=>"popup_#{racun.id}"}

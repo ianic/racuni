@@ -1,5 +1,5 @@
 <div id="top">
   <div id="top_title"><%= naziv_dokumenta(@racun) %></div>
-  <a href="javascript:window.print();"><img src="/images/printer.png" style="padding-bottom: 10px; margin-right: 20px;" /></a>
-  <a href="/"><img alt="" src="/images/logo_tb.gif" /></a>
+  <a class="img_link" href="javascript:window.print();"><%= image_tag "printer.png", :style=>"padding-bottom: 10px; mrgin-right:20px" %></a>
+  <a href="/"><%= image_tag "logo_tb.gif", :alt => "" %></a>
 </div>
