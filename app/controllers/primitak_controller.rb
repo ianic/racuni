@@ -10,8 +10,6 @@ class PrimitakController < ApplicationController
 	  (@izdatak = @user.primici.build) if !@izdatak
 	  super
 	end
-	
-	protected 
 	  
   def read_params
     (@izdatak = @user.primici.find(params[:id])) if params[:id]
