@@ -1,6 +1,6 @@
 development:
   adapter: mysql2
-  database: nektar
+  database: racuni
   username: root
   password:
   encoding: utf8 

@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
+  #u produkciji ne prodje konfiguracija iz environment.rb, ali ovu ufati ?...
+  ActiveRecord::Base.pluralize_table_names = false
+
   require 'find_conditions_helper'
   include DictionaryHelper
   helper DictionaryHelper
