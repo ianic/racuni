@@ -13,13 +13,15 @@ gem 'haml'
 gem 'uuidtools'
 gem 'will_paginate'
 
+gem 'capistrano'
+gem 'capistrano_colors'
 
 # # Gems used only for assets and not required
 # # in production environments by default.
 # group :assets do
 #   gem 'sass-rails', " ~> 3.1.0"
 #   gem 'coffee-rails', " ~> 3.1.0"
-#   gem 'uglifier'
+   gem 'uglifier'
 # end
 
 # gem 'jquery-rails'
