@@ -3,7 +3,7 @@ require 'uuidtools'
 module Dokument
 
   def broj_dokumenta
-    "#{broj}/#{godina}"
+    "#{broj}-01-01"
   end
 
   def after_initialize

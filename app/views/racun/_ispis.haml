@@ -16,19 +16,38 @@
   .datum_head.left Datum
   .datum_head
     = "Rok Plaćanja" if @racun.racun?
-    = "&nbsp;" if @racun.gotovinski?
+    = nbsp if @racun.gotovinski?
     = "Vrijedi Dana" if @racun.ponuda?
-  .datum_head.right
+
+  .datum_head
     = "Dospjeće" if @racun.racun?
-    = "&nbsp;" if @racun.gotovinski?
+    = nbsp if @racun.gotovinski?
     = "Vrijedi Do" if @racun.ponuda?
+  .datum_head
+    = "Operater"
+  .datum_head
+    = "Vrijeme"
+  .datum_head.right.long
+    - if @racun.racun?
+      = "Naćin plaćanja"
+    = nbsp
+
   .datum.left= d @racun.datum
   .datum
-    = "&nbsp" if @racun.gotovinski?
+    = nbsp if @racun.gotovinski?
     = @racun.rok_placanja if !@racun.gotovinski?
-  .datum.right
-    = "&nbsp" if @racun.gotovinski?
+  .datum
+    = nbsp if @racun.gotovinski?
     = d @racun.dospjece if !@racun.gotovinski?
+  .datum
+    = "01"
+  .datum
+    = racun_vrijeme @racun.created_at
+  .datum.right.long
+    - if @racun.racun?
+      = "transakcijiski račun"
+    = nbsp
+
   .clear
 
   .head_stavka
@@ -44,7 +63,7 @@
     .clear
     - @racun.stavke.each do |stavka|
       - if @racun.ima_sifru?
-        .sifra= stavka.sifra || "&nbsp;"
+        .sifra= stavka.sifra || nbsp
         .opis= h stavka.opis_bez_sifre
       - unless @racun.ima_sifru?
         .opis_sifra= h stavka.opis_bez_sifre
@@ -72,4 +91,7 @@
     .clear
   .potpis
   .footer
+    - if @racun.racun?
+      = "obračun prema naplaćenoj naknadi"
+      <br/>
     = @user.racun_footer

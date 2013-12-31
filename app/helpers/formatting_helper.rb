@@ -19,6 +19,23 @@ module FormattingHelper
     date.to_s(:hr) if date
   end
 
+  def racun_vrijeme(date)
+    return unless date
+    logger.debug "hour #{date.hour}"
+    hour = date.hour.to_i
+    if hour > 15
+      date.strftime("15:%M")
+    elsif hour < 8
+      date.strftime("08:%M")
+    else
+      date.strftime("%H:%M")
+    end
+  end
+
+  def nbsp
+    "&nbsp;".html_safe
+  end
+
   #money format
   def m(number)
     to_money(number)

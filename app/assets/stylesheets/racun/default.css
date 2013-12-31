@@ -40,16 +40,17 @@
         background: #ccc;
         padding: 5px;
         float: left;
-        width: 189px;}
+        width: 76px;}
 #racun_ispis .datum {
         font: bold 9pt/11pt Arial;
         border: 1px solid #eee;
         padding: 5px;
-        width: 189px;
+        width: 76px;
         float: left;
         background-color: #eee; }
 #racun_ispis .left { border-right: 0px; }
 #racun_ispis .right { border-left: 0px; }
+#racun_ispis .long { width: 151px;}
 
 /* stavke */
 #racun_ispis .head_stavka { clear: both; margin-top: 1.8em; }
