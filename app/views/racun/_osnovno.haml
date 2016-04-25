@@ -6,4 +6,6 @@
   .row
     = element "datum računa", date_select_hr('racun', 'datum')
     = element("rok plaćanja", text_field('racun', 'rok_placanja', :class => "ms")) unless ( @racun.gotovinski? || @racun.new_record? )
+  .row
+    = element("broj narudžbe", text_field('racun', 'broj_narudzbe')) 
   .cleaner

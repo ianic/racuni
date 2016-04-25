@@ -137,4 +137,8 @@ module RacunCommon
     ima
   end
 
+  def broj_narudzbe?
+    broj_narudzbe.strip.size > 0
+  end
+
 end

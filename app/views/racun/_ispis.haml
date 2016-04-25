@@ -48,6 +48,11 @@
       = "transakcijiski račun"
     = nbsp
 
+  - if @racun.broj_narudzbe?
+    .datum_head.long Broj narudžbe
+    .clear
+    .datum.long= @racun.broj_narudzbe
+
   .clear
 
   .head_stavka
