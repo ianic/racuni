@@ -15,7 +15,7 @@ set :use_sudo, false
 set :ssh_options, { :forward_agent => true }
                  
 set :deploy_to, "/var/apps/racuni"
-server "10.0.15.32", :app, :web, :db, :primary => true
+server "10.0.0.9", :app, :web, :db, :primary => true
 
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
