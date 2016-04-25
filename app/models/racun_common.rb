@@ -138,7 +138,7 @@ module RacunCommon
   end
 
   def broj_narudzbe?
-    broj_narudzbe.strip.size > 0
+    broj_narudzbe.to_s.strip.size > 0
   end
 
 end
