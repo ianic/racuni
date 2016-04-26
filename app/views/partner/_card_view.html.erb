@@ -3,7 +3,8 @@
 -%>
 <div class="partner_card_view" id="<%=id%>">
 
-	<div class="naziv"><%=h partner.naziv %></div>
+  <div class="naziv"><%=h partner.naziv %></div>
+  <% if exists?(partner.mjesto_troska) %><div><%=h partner.mjesto_troska %></div><% end %>
 	<div>
 	  <span><%=h partner.mjesto %></span>
 	  <span><%=h partner.adresa %></span>

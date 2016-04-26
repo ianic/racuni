@@ -8,7 +8,7 @@ class PartnerController < ApplicationController
   end
 
   def page
-    @partneri = (@user.partneri.find(:all, :order=>"naziv", :conditions=>"naziv is not null").collect{|p| p if (p.slovo == params[:page])}).compact
+    @partneri = (@user.partneri.find(:all, :order=>"naziv, mjesto_troska", :conditions=>"naziv is not null").collect{|p| p if (p.slovo == params[:page])}).compact
     render :partial => "card_view", :collection => @partneri
   end
 
@@ -33,7 +33,7 @@ class PartnerController < ApplicationController
       	) p
       	group by partner_id
       ) b on b.partner_id = p.id
-      order by p.naziv")
+      order by p.naziv p.mjesto_troska")
   end
 
   def zamjena
@@ -95,11 +95,11 @@ class PartnerController < ApplicationController
     like = params[:partner_search].strip + '%'
     @partneri = @user.partneri.find(:all,
                                     :conditions => [ 'naziv LIKE ?', like ],
-                                    :order => 'naziv  ASC',
+                                    :order => 'naziv  ASC, mjesto_troska',
                                     :limit => limit)
     @partneri += @user.partneri.find(:all,
                                      :conditions => [ 'naziv not like ? and naziv LIKE ?', like, '%' + like ],
-                                     :order => 'naziv  ASC',
+                                     :order => 'naziv  ASC, mjesto_troska',
                                      :limit => limit - @partneri.size) if @partneri.size < limit
     render :partial => 'auto_complete'
   end

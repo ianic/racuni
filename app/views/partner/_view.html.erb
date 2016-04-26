@@ -2,6 +2,7 @@
 <div class="partner_view" id="partner_view_inner">
 <% if partner -%>
   <div class="naziv"><%=h partner.naziv %></div>
+  <% if exists?(partner.mjesto_troska) %><div><%=h partner.mjesto_troska %></div><% end %>
   <div><%=h partner.adresa %></div>
   <div><%=h partner.mjesto %></div>
   <% unless partner.porezni_broj.nil? || partner.porezni_broj.empty? %>

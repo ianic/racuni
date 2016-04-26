@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 27) do
+ActiveRecord::Schema.define(:version => 28) do
 
   create_table "gotovinski_racun", :force => true do |t|
     t.integer  "partner_id",                                     :default => 0,      :null => false
@@ -92,8 +92,9 @@ ActiveRecord::Schema.define(:version => 27) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id",      :default => -1, :null => false
+    t.integer  "user_id",       :default => -1, :null => false
     t.string   "oib"
+    t.string   "mjesto_troska"
   end
 
   add_index "partner", ["naziv"], :name => "index_partner_on_naziv"
