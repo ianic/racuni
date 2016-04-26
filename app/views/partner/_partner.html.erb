@@ -1,7 +1,10 @@
 # encoding: utf-8
 
 <% if partner %>
-    <div class="naziv"><%=h partner.naziv %></div>
+    <div>
+        <span class="naziv"><%=h partner.naziv %></span>
+        <% if exists?(partner.mjesto_troska) %><span><%=h partner.mjesto_troska %></span><% end %>
+    </div>
     <div>
         <%=h partner.mjesto %>
         <%=h partner.adresa %>
