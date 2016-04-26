@@ -141,4 +141,8 @@ module RacunCommon
     broj_narudzbe.to_s.strip.size > 0
   end
 
+  def izvoz?
+    pdv_kategorija == "I.2.2"
+  end
+
 end

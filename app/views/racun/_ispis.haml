@@ -96,6 +96,9 @@
     .clear
   .potpis
   .footer
+    - if @racun.izvoz?
+      = "Isporuka je oslobođena PDV-a prema čl.41. st.1. t.b Zakona o PDV-u"
+      <br/>
     - if @racun.racun?
       = "obračun prema naplaćenoj naknadi"
       <br/>
