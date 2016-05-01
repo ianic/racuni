@@ -3,10 +3,14 @@
 <% if partner %>
     <div>
         <span class="naziv"><%=h partner.naziv %></span>
-        <% if exists?(partner.mjesto_troska) %><span><%=h partner.mjesto_troska %></span><% end %>
     </div>
+
     <div>
+    <% if exists?(partner.mjesto_troska) %>
+        <span><%=h partner.mjesto_troska %></span>
+    <% else %>
+        <%=h partner.adresa %>,&nbsp;
         <%=h partner.mjesto %>
-        <%=h partner.adresa %>
+    <% end %>
     </div>
 <% end %>

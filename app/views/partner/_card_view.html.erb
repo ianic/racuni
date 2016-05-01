@@ -4,11 +4,12 @@
 <div class="partner_card_view" id="<%=id%>">
 
   <div class="naziv"><%=h partner.naziv %></div>
-  <% if exists?(partner.mjesto_troska) %><div><%=h partner.mjesto_troska %></div><% end %>
 	<div>
+    <span><%=h partner.adresa %></span>,&nbsp;
 	  <span><%=h partner.mjesto %></span>
-	  <span><%=h partner.adresa %></span>
+
 	</div>
+  <% if exists?(partner.mjesto_troska) %><div><%=h partner.mjesto_troska %></div><% end %>
 	
 	<% if exists?(partner.tel) %><div>tel: <%=h partner.tel %></div><% end %>
 	<% if exists?(partner.fax) %><div>fax: <%=h partner.fax %></div><% end %>
