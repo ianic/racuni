@@ -5,3 +5,7 @@ log/*.log
 tmp/
 TAGS
 db/racuni_082213.bkp
+public/system
+REVISION
+log
+public/assets
