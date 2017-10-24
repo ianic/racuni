@@ -139,10 +139,14 @@ module RacunCommon
 
   def broj_narudzbe?
     broj_narudzbe.to_s.strip.size > 0
+  rescue
+    false
   end
 
   def izvoz?
     pdv_kategorija == "I.2.2"
+  rescue
+    false
   end
 
 end
