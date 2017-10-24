@@ -3,9 +3,9 @@
   = row_element "osnovica", text_field('racun', 'osnovica', :disabled => true, :class => "mb", :currency => "true")
   .row
     = element "popust",     text_field('racun', 'popust_postotak', :size => 2, :class => "ms", :currency => "true") + "%"
-    = element nil,          text_field('racun', 'popust', :class => "m", :disabled => true, :currency => "true")
+    = element nbsp,          text_field('racun', 'popust', :class => "m", :disabled => true, :currency => "true")
   .row
     = element "pdv",        text_field('racun', 'pdv_postotak', :size => 2, :class => "ms", :currency => "true") + "%"
-    = element nil,          text_field('racun', 'pdv', :class => "m", :disabled => true, :currency => "true")
+    = element nbsp,          text_field('racun', 'pdv', :class => "m", :disabled => true, :currency => "true")
   = row_element "iznos",    text_field('racun', 'iznos', :disabled => true, :class => "mb", :currency => "true")
   .cleaner
