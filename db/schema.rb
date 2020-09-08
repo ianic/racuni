@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 29) do
+ActiveRecord::Schema.define(:version => 30) do
 
   create_table "gotovinski_racun", :force => true do |t|
     t.integer  "partner_id",                                     :default => 0,      :null => false
@@ -207,6 +207,7 @@ ActiveRecord::Schema.define(:version => 29) do
     t.integer "stavka_id"
     t.decimal "cijena",     :precision => 18, :scale => 4, :default => 0.0, :null => false
     t.decimal "kolicina",   :precision => 18, :scale => 4, :default => 0.0, :null => false
+    t.string  "lot"
   end
 
   add_index "racun_stavka", ["racun_id"], :name => "index_racun_stavka_on_racun_id"

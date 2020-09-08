@@ -19,7 +19,8 @@ module RacunCommon
       self.stavke << RacunStavka.new(
         :stavka_id => self.user.stavka(attr[:opis], attr[:jedinica_mjere], attr[:cijena]).id,
         :cijena => attr[:cijena],
-        :kolicina => attr[:kolicina])
+        :kolicina => attr[:kolicina],
+        :lot => attr[:lot])
     end if stavke_attributes
 
     self.save

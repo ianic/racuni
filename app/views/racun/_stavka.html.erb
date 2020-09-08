@@ -13,6 +13,7 @@
     <div class="auto_complete" id="<%= opis_id %>_auto_complete" ></div>
   </div>
   <div class="cleaner"></div>
+  <div class="stavka_lot"><%= text_field 'stavka', 'lot', :index => index %></div>
   <div class="stavka_jedinica_mjere"><%= text_field 'stavka', 'jedinica_mjere', :index => index %></div>
   <div class="stavka_cijena"><%= text_field 'stavka', 'cijena', :index => index, :currency => "true" %></div>
   <div class="stavka_kolicina"><%= text_field 'stavka', 'kolicina', :index => index, :currency => "true" %></div>
@@ -29,6 +30,7 @@
        
        $('<%= "stavka_#{index}_cijena" %>').value = $F(selectedElement.childNodes[1]);
        $('<%= "stavka_#{index}_jedinica_mjere" %>').value = $F(selectedElement.childNodes[2]);
+       $('<%= "stavka_#{index}_lot" %>').value = $F(selectedElement.childNodes[4]);
        Field.activate('<%= "stavka_#{index}_cijena" %>');
        Field.activate('<%= "stavka_#{index}_kolicina" %>');
      },

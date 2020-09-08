@@ -1,6 +1,6 @@
 <ul class="auto_complete">
 <% @stavke.each do |stavka| -%>
-  <li style="position: relative;"><%=h stavka.opis -%><input type="hidden" value="<%= stavka.cijena %>" /><input type="hidden" value="<%= stavka.jedinica_mjere %>" /><input type="hidden" value="<%= stavka.id %>" />    
+  <li style="position: relative;"><%=h stavka.opis -%><input type="hidden" value="<%= stavka.cijena %>" /><input type="hidden" value="<%= stavka.jedinica_mjere %>" /><input type="hidden" value="<%= stavka.id %>" /><input type="hidden" value="<%= @lots[stavka.id] %>" />    
     <div style="position: absolute; right:60px; top:5px;"><%= stavka.jedinica_mjere %></div>
     <div style="position: absolute; right:5px; top: 5px;"><%= stavka.cijena %></div>
     <div class="cleaner"></div>

@@ -8,7 +8,7 @@
 #racun_ispis .partner_view
 {
         border: 1px dotted #bababa;
-        height: 7em;
+        height: 9em;
         padding: 10px;
         font: 9pt/11pt Arial;
         width: 250px;
@@ -55,7 +55,7 @@
 /* stavke */
 #racun_ispis .head_stavka { clear: both; margin-top: 1.8em; }
 #racun_ispis .head_stavka_opis, #racun_ispis .head_stavka_cijena, #racun_ispis .head_stavka_kolicina, 
-#racun_ispis .head_stavka_iznos, #racun_ispis .head_stavka_jedinica_mjere, #racun_ispis .head_stavka_sifra,
+#racun_ispis .head_stavka_iznos, #racun_ispis .head_stavka_jedinica_mjere, #racun_ispis .head_stavka_sifra, #racun_ispis .head_stavka_lot,
 #racun_ispis .head_stavka_opis_sifra {
         font: bold 9pt/11pt Arial;
         border-top: 1px dotted #666;
@@ -67,14 +67,15 @@
         text-align:right;
         border-left: 1px dotted #666;
         height: 2.5em;  }
-#racun_ispis .head_stavka_opis {     width: 240px; text-align:left; }      
-#racun_ispis .head_stavka_opis_sifra {     width: 311px; text-align:left; } 
+#racun_ispis .head_stavka_opis {     width: 175px; text-align:left; }      
+#racun_ispis .head_stavka_opis_sifra {     width: 246px; text-align:left; } 
 #racun_ispis .head_stavka_sifra {     width: 60px; text-align:left; }      
 #racun_ispis .head_stavka_jedinica_mjere { width: 54px; text-align:center; }
+#racun_ispis .head_stavka_lot { width: 54px; text-align:center; }
 #racun_ispis .head_stavka_iznos { border-right: 1px dotted #666;      }
 #racun_ispis .head_stavka_kolicina, #racun_ispis .head_stavka_cijena{ width: 50px; text-align: center; }
 
-#racun_ispis .opis, #racun_ispis .jedinica_mjere, #racun_ispis .cijena, #racun_ispis .kolicina, #racun_ispis .iznos, #racun_ispis .sifra, #racun_ispis .opis_sifra{
+#racun_ispis .opis, #racun_ispis .jedinica_mjere, #racun_ispis .cijena, #racun_ispis .kolicina, #racun_ispis .iznos, #racun_ispis .sifra, #racun_ispis .opis_sifra, #racun_ispis .lot{
         font: bold 9pt/11pt Arial;
         margin-left: 1px;
         padding: 5px;
@@ -82,12 +83,20 @@
         float: left;
         text-align:right;
         border-bottom: dotted 1px #ccc;}
-#racun_ispis .opis  { width: 240px; text-align: left; } 
-#racun_ispis .opis_sifra  { width: 311px; text-align: left; }  
+#racun_ispis .opis  { width: 175px; text-align: left; } 
+#racun_ispis .opis_sifra  { width: 246px; text-align: left; }  
 #racun_ispis .sifra { width: 60px; text-align:left; }   
+#racun_ispis .lot{ width: 54px; text-align: center; }     
 #racun_ispis .jedinica_mjere{ width: 54px; text-align: center; }     
 #racun_ispis .kolicina, #racun_ispis .cijena{ width: 50px;}
 
+/* na ponudi sakrij kolonu lot na ispisu */
+#racun_ispis .head_stavka.ponuda .head_stavka_lot        { display: none;  }
+#racun_ispis .head_stavka.ponuda .head_stavka_opis       { width: 240px; text-align:left; }      
+#racun_ispis .head_stavka.ponuda .head_stavka_opis_sifra { width: 311px; text-align:left; } 
+#racun_ispis .head_stavka.ponuda .lot        { display: none;  }
+#racun_ispis .head_stavka.ponuda .opis       { width: 240px; text-align:left; }      
+#racun_ispis .head_stavka.ponuda .opis_sifra { width: 311px; text-align:left; } 
 
 .sifra {
 	font: italic 9pt/11pt Arial;

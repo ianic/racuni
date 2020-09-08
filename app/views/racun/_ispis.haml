@@ -55,12 +55,13 @@
 
   .clear
 
-  .head_stavka
+  .head_stavka{ :class => ("ponuda" if @racun.ponuda?) }
     - if @racun.ima_sifru?
       .head_stavka_sifra Šifra
       .head_stavka_opis Naziv
     - unless @racun.ima_sifru?
       .head_stavka_opis_sifra Naziv
+    .head_stavka_lot Lot      
     .head_stavka_jedinica_mjere Jedinica Mjere
     .head_stavka_kolicina Količina
     .head_stavka_cijena Cijena
@@ -72,6 +73,7 @@
         .opis= h stavka.opis_bez_sifre
       - unless @racun.ima_sifru?
         .opis_sifra= h stavka.opis_bez_sifre
+      .lot= h stavka.lot || nbsp
       .jedinica_mjere= h stavka.jedinica_mjere
       .kolicina= k stavka.kolicina
       .cijena= m stavka.cijena

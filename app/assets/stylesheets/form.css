@@ -51,7 +51,7 @@ h5 { font-size: 11px; }
 .sub_form input.t{ width:400px; }
 
 .stavka_opis, .stavka_jedinica_mjere, .stavka_cijena, .stavka_kolicina, .stavka_iznos,
-.placanje_datum, .placanje_dokument, .placanje_iznos
+.placanje_datum, .placanje_dokument, .placanje_iznos, .stavka_lot
 {
   padding: 1px;
   width: 90px;
@@ -84,14 +84,14 @@ h5 { font-size: 11px; }
 }
 .stavka_opis input
 {
-  width: 365px;
+  width: 438px;
 }
-.stavka_jedinica_mjere
+.stavka_jedinica_mjere, .stavka_lot
 {
   width: 72px;
   text-align: center;
 }
-.stavka_jedinica_mjere input {
+.stavka_jedinica_mjere input, .stavka_lot input {
   width: 70px;
 }
 .stavka_cijena input, .stavka_kolicina input, .placanje_iznos input {
@@ -106,5 +106,5 @@ h5 { font-size: 11px; }
   font-size: 12px
 }
 #stavke {
-  width: 400px;
+  width: 472px;
 }

@@ -62,8 +62,13 @@ class UserController < ApplicationController
     @stavke = Stavka.find_by_sql("select * from partner_stavka where partner_id = #{partner_id} and opis like '%#{opis}%' order by opis limit #{limit}") if partner_id  
     #@stavke += Stavka.find_by_sql("select * from stavka where opis like '#{opis}%' order by opis limit #{limit - @stavke.size}")  if @stavke.size < limit    
     @stavke += Stavka.find_by_sql("select * from stavka where opis like '%#{opis}%' order by opis limit #{limit - @stavke.size}") if @stavke.size < limit
-    
     @stavke.uniq!
+
+    # nadji zadnji lot u racun_stavke za svaku stavku
+    ids = @stavke.map{|s| s.id}.join(",")
+    rs = RacunStavka.find_by_sql("select stavka_id, lot from racun_stavka where id in (select  max(id) id from racun_stavka where stavka_id in (#{ids}) and lot is not null and lot != '' group by stavka_id)")
+    @lots = rs.map{|s| [s.stavka_id, s.lot]}.to_h # pretvori to u map [stavka_id] => lot
+    
     #@stavke = @user.stavke.find(:all,
     #  :conditions => [ 'opis LIKE ?', "%#{opis}%" ],
     #  :order => 'opis',
