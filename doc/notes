@@ -1,0 +1,33 @@
+
+# ovo popravlja openssl
+brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/8b9d6d688f483a0f33fcfc93d433de501b9c3513/Formula/openssl.rb
+brew switch openssl 1.0.2t
+
+# ovo popravlja therubyracer
+brew tap homebrew/versions
+brew install v8-315
+gem install libv8 -v '3.16.14.13' -- --with-system-v8
+gem install therubyracer -- --with-v8-dir=/usr/local/opt/v8-315
+bundle install
+
+
+
+gem install --no-document bundler -v '1.17.3'
+
+gem install mysql2 -v '0.3.20' -- --with-ldflags=-L/usr/local/opt/openssl/lib --with-cppflags=-I/usr/local/opt/openssl/include
+
+
+https://terrypjohnson.com/blog/2017/12/04/installing-the-mysql-gem-with-mariadb-10-2-6/
+
+# kako pokrenuti database migration
+bundle exec rake db:migrate
+
+# rails c nije radio pa sam opali
+https://stackoverflow.com/questions/54261455/library-not-loaded-usr-local-opt-readline-lib-libreadline-7-dylib
+cd /usr/local/opt/readline/lib 
+ln -s libreadline.8.0.dylib libreadline.7.dylib
+
+
+# nakon sto napravim deploy
+bundle exec rake assets:precompile
+touch tmp/restart.txt
