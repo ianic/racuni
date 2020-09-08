@@ -87,10 +87,11 @@
     .clear
     - if @racun.popust?
       .cola POPUST
-      .colbc= m @racun.popust
+      .colb= k(@racun.popust_postotak, 2) + "%"
+      .colc= m @racun.popust
       .clear
     .cola  PDV
-    .colb= m @racun.pdv_postotak
+    .colb= k(@racun.pdv_postotak, 2) + "%"
     .colc= m @racun.pdv
     .clear
     .cola.colbold  IZNOS
