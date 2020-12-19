@@ -1,0 +1,9 @@
+/var/apps/racuni/log/*.log {
+  monthly
+  missingok
+  rotate 1024
+  compress
+  delaycompress
+  notifempty
+  copytruncate
+}
