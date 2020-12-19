@@ -1,0 +1,5 @@
+---
+BUNDLE_FROZEN: '1'
+BUNDLE_PATH: "/var/apps/racuni/shared/bundle"
+BUNDLE_WITHOUT: development:test
+BUNDLE_DISABLE_SHARED_GEMS: '1'
