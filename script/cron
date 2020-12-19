@@ -1,2 +1,2 @@
-*/1 * * * * ubuntu /var/apps/racuni/script/dump.sh >> /var/apps/racuni/log/database_dumps.log
+55 23 * * * ubuntu /var/apps/racuni/script/dump.sh >> /var/apps/racuni/log/database_dumps.log
 
